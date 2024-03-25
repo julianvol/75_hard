@@ -8,12 +8,20 @@
 import SwiftUI
 
 struct ContentView: View {
+    let data = TaskList
+    
     var body: some View {
         VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundStyle(.tint)
-            Text("Hello, world!")
+            HomeViewHeader()
+                .padding(.vertical)
+            LazyVGrid(columns: [GridItem(.flexible(), spacing: 15),  GridItem(.flexible())], spacing: 15) {
+                ForEach(data, id: \.self) { task in
+                   TaskElement(task: task)
+                }
+            }
+            .padding(.bottom)
+            ProgressBar(progress: 0.4)
+                .padding(.top)
         }
         .padding()
     }
