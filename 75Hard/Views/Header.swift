@@ -7,7 +7,8 @@
 
 import SwiftUI
 
-struct HomeViewHeader: View {
+struct Header: View {
+    let onTapCalendarAction: () -> Void
     var body: some View {
         HStack {
             VStack(alignment: .leading) {
@@ -16,19 +17,23 @@ struct HomeViewHeader: View {
                     .fontWeight(.bold)
                 Text("Strengthen your Body and Mind.")
                     .font(.headline)
-                    .fontWeight(.medium)
+                    .fontWeight(.bold)
             }
             
             Spacer()
-            Image(uiImage: UIImage(systemName: "calendar.circle")!)
+            Image(systemName: "calendar.circle.fill")
                             .resizable()
                             .aspectRatio(contentMode: .fit)
-                            .frame(width: 50, height: 50)
+                            .frame(width: 45, height: 45)
+                            .foregroundColor(Color("sf"))
+                            .onTapGesture{
+                                onTapCalendarAction()
+                            }
         }
-        .padding([.leading, .bottom, .trailing])
+        .padding([.bottom, .trailing])
     }
 }
 
 #Preview {
-    HomeViewHeader()
+    Header(onTapCalendarAction: {})
 }

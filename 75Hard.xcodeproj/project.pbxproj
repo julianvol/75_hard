@@ -14,10 +14,19 @@
 		B90D0E472BB1FDFD000F6DDB /* _5HardTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B90D0E462BB1FDFD000F6DDB /* _5HardTests.swift */; };
 		B90D0E512BB1FDFD000F6DDB /* _5HardUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B90D0E502BB1FDFD000F6DDB /* _5HardUITests.swift */; };
 		B90D0E532BB1FDFD000F6DDB /* _5HardUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B90D0E522BB1FDFD000F6DDB /* _5HardUITestsLaunchTests.swift */; };
-		B90D0E602BB20090000F6DDB /* HomeViewHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = B90D0E5F2BB20090000F6DDB /* HomeViewHeader.swift */; };
+		B90D0E602BB20090000F6DDB /* Header.swift in Sources */ = {isa = PBXBuildFile; fileRef = B90D0E5F2BB20090000F6DDB /* Header.swift */; };
 		B90D0E622BB2048E000F6DDB /* TaskElement.swift in Sources */ = {isa = PBXBuildFile; fileRef = B90D0E612BB2048E000F6DDB /* TaskElement.swift */; };
-		B90D0E642BB20A79000F6DDB /* TaskList.swift in Sources */ = {isa = PBXBuildFile; fileRef = B90D0E632BB20A79000F6DDB /* TaskList.swift */; };
-		B90D0E662BB20B5C000F6DDB /* Task.swift in Sources */ = {isa = PBXBuildFile; fileRef = B90D0E652BB20B5C000F6DDB /* Task.swift */; };
+		B90D0E642BB20A79000F6DDB /* ChallengeList.swift in Sources */ = {isa = PBXBuildFile; fileRef = B90D0E632BB20A79000F6DDB /* ChallengeList.swift */; };
+		B90D0E662BB20B5C000F6DDB /* Challenge.swift in Sources */ = {isa = PBXBuildFile; fileRef = B90D0E652BB20B5C000F6DDB /* Challenge.swift */; };
+		B93293D12BB62E9E00396693 /* DevSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = B93293D02BB62E9D00396693 /* DevSheet.swift */; };
+		B9332CE02BB2E30A000495D0 /* DataStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9332CDF2BB2E30A000495D0 /* DataStore.swift */; };
+		B936426B2BBB19A800A80DFB /* SplashScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = B936426A2BBB19A800A80DFB /* SplashScreen.swift */; };
+		B93E7D4D2BB245AA0002EDFA /* CalendarSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = B93E7D4C2BB245AA0002EDFA /* CalendarSheet.swift */; };
+		B96559862BB4C787005F5B11 /* HealthStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = B96559852BB4C787005F5B11 /* HealthStore.swift */; };
+		B96A05F82BB9908D0031BD48 /* TaskGrid.swift in Sources */ = {isa = PBXBuildFile; fileRef = B96A05F72BB9908D0031BD48 /* TaskGrid.swift */; };
+		B99E685A2BB2CA9E00ACC32E /* DateElement.swift in Sources */ = {isa = PBXBuildFile; fileRef = B99E68592BB2CA9E00ACC32E /* DateElement.swift */; };
+		B99E685C2BB2D2B000ACC32E /* ChallengeDay.swift in Sources */ = {isa = PBXBuildFile; fileRef = B99E685B2BB2D2B000ACC32E /* ChallengeDay.swift */; };
+		B99E685E2BB2DB8C00ACC32E /* ChallengeDayList.swift in Sources */ = {isa = PBXBuildFile; fileRef = B99E685D2BB2DB8C00ACC32E /* ChallengeDayList.swift */; };
 		B9CBF1D32BB23283002BBB25 /* ProgressBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9CBF1D22BB23283002BBB25 /* ProgressBar.swift */; };
 /* End PBXBuildFile section */
 
@@ -49,10 +58,20 @@
 		B90D0E4C2BB1FDFD000F6DDB /* 75HardUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = 75HardUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		B90D0E502BB1FDFD000F6DDB /* _5HardUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = _5HardUITests.swift; sourceTree = "<group>"; };
 		B90D0E522BB1FDFD000F6DDB /* _5HardUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = _5HardUITestsLaunchTests.swift; sourceTree = "<group>"; };
-		B90D0E5F2BB20090000F6DDB /* HomeViewHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewHeader.swift; sourceTree = "<group>"; };
+		B90D0E5F2BB20090000F6DDB /* Header.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Header.swift; sourceTree = "<group>"; };
 		B90D0E612BB2048E000F6DDB /* TaskElement.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskElement.swift; sourceTree = "<group>"; };
-		B90D0E632BB20A79000F6DDB /* TaskList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskList.swift; sourceTree = "<group>"; };
-		B90D0E652BB20B5C000F6DDB /* Task.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Task.swift; sourceTree = "<group>"; };
+		B90D0E632BB20A79000F6DDB /* ChallengeList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChallengeList.swift; sourceTree = "<group>"; };
+		B90D0E652BB20B5C000F6DDB /* Challenge.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Challenge.swift; sourceTree = "<group>"; };
+		B93293D02BB62E9D00396693 /* DevSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DevSheet.swift; sourceTree = "<group>"; };
+		B9332CDF2BB2E30A000495D0 /* DataStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataStore.swift; sourceTree = "<group>"; };
+		B936426A2BBB19A800A80DFB /* SplashScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashScreen.swift; sourceTree = "<group>"; };
+		B93E7D4C2BB245AA0002EDFA /* CalendarSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarSheet.swift; sourceTree = "<group>"; };
+		B96559852BB4C787005F5B11 /* HealthStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HealthStore.swift; sourceTree = "<group>"; };
+		B96559872BB4CA23005F5B11 /* 75Hard.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = 75Hard.entitlements; sourceTree = "<group>"; };
+		B96A05F72BB9908D0031BD48 /* TaskGrid.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskGrid.swift; sourceTree = "<group>"; };
+		B99E68592BB2CA9E00ACC32E /* DateElement.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateElement.swift; sourceTree = "<group>"; };
+		B99E685B2BB2D2B000ACC32E /* ChallengeDay.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChallengeDay.swift; sourceTree = "<group>"; };
+		B99E685D2BB2DB8C00ACC32E /* ChallengeDayList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChallengeDayList.swift; sourceTree = "<group>"; };
 		B9CBF1D22BB23283002BBB25 /* ProgressBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressBar.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -84,7 +103,6 @@
 		B90D0E292BB1FDF7000F6DDB = {
 			isa = PBXGroup;
 			children = (
-				B9CBF1D22BB23283002BBB25 /* ProgressBar.swift */,
 				B90D0E342BB1FDF7000F6DDB /* 75Hard */,
 				B90D0E452BB1FDFD000F6DDB /* 75HardTests */,
 				B90D0E4F2BB1FDFD000F6DDB /* 75HardUITests */,
@@ -105,12 +123,11 @@
 		B90D0E342BB1FDF7000F6DDB /* 75Hard */ = {
 			isa = PBXGroup;
 			children = (
+				B92284C12BB6DA1500DCE11C /* Controller */,
+				B92284C02BB6DA0200DCE11C /* Views */,
+				B92284BF2BB6D9E500DCE11C /* Models */,
+				B96559872BB4CA23005F5B11 /* 75Hard.entitlements */,
 				B90D0E352BB1FDF7000F6DDB /* _5HardApp.swift */,
-				B90D0E372BB1FDF7000F6DDB /* ContentView.swift */,
-				B90D0E632BB20A79000F6DDB /* TaskList.swift */,
-				B90D0E652BB20B5C000F6DDB /* Task.swift */,
-				B90D0E612BB2048E000F6DDB /* TaskElement.swift */,
-				B90D0E5F2BB20090000F6DDB /* HomeViewHeader.swift */,
 				B90D0E392BB1FDFC000F6DDB /* Assets.xcassets */,
 				B90D0E3B2BB1FDFC000F6DDB /* Preview Content */,
 			);
@@ -140,6 +157,42 @@
 				B90D0E522BB1FDFD000F6DDB /* _5HardUITestsLaunchTests.swift */,
 			);
 			path = 75HardUITests;
+			sourceTree = "<group>";
+		};
+		B92284BF2BB6D9E500DCE11C /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				B99E685D2BB2DB8C00ACC32E /* ChallengeDayList.swift */,
+				B90D0E632BB20A79000F6DDB /* ChallengeList.swift */,
+				B99E685B2BB2D2B000ACC32E /* ChallengeDay.swift */,
+				B90D0E652BB20B5C000F6DDB /* Challenge.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		B92284C02BB6DA0200DCE11C /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				B936426A2BBB19A800A80DFB /* SplashScreen.swift */,
+				B90D0E612BB2048E000F6DDB /* TaskElement.swift */,
+				B90D0E5F2BB20090000F6DDB /* Header.swift */,
+				B9CBF1D22BB23283002BBB25 /* ProgressBar.swift */,
+				B90D0E372BB1FDF7000F6DDB /* ContentView.swift */,
+				B93293D02BB62E9D00396693 /* DevSheet.swift */,
+				B99E68592BB2CA9E00ACC32E /* DateElement.swift */,
+				B93E7D4C2BB245AA0002EDFA /* CalendarSheet.swift */,
+				B96A05F72BB9908D0031BD48 /* TaskGrid.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		B92284C12BB6DA1500DCE11C /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				B9332CDF2BB2E30A000495D0 /* DataStore.swift */,
+				B96559852BB4C787005F5B11 /* HealthStore.swift */,
+			);
+			path = Controller;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -273,12 +326,21 @@
 			buildActionMask = 2147483647;
 			files = (
 				B90D0E382BB1FDF7000F6DDB /* ContentView.swift in Sources */,
-				B90D0E642BB20A79000F6DDB /* TaskList.swift in Sources */,
+				B93E7D4D2BB245AA0002EDFA /* CalendarSheet.swift in Sources */,
+				B99E685E2BB2DB8C00ACC32E /* ChallengeDayList.swift in Sources */,
+				B93293D12BB62E9E00396693 /* DevSheet.swift in Sources */,
+				B9332CE02BB2E30A000495D0 /* DataStore.swift in Sources */,
+				B90D0E642BB20A79000F6DDB /* ChallengeList.swift in Sources */,
+				B99E685C2BB2D2B000ACC32E /* ChallengeDay.swift in Sources */,
 				B90D0E622BB2048E000F6DDB /* TaskElement.swift in Sources */,
-				B90D0E602BB20090000F6DDB /* HomeViewHeader.swift in Sources */,
-				B90D0E662BB20B5C000F6DDB /* Task.swift in Sources */,
+				B936426B2BBB19A800A80DFB /* SplashScreen.swift in Sources */,
+				B90D0E602BB20090000F6DDB /* Header.swift in Sources */,
+				B90D0E662BB20B5C000F6DDB /* Challenge.swift in Sources */,
 				B90D0E362BB1FDF7000F6DDB /* _5HardApp.swift in Sources */,
+				B96A05F82BB9908D0031BD48 /* TaskGrid.swift in Sources */,
 				B9CBF1D32BB23283002BBB25 /* ProgressBar.swift in Sources */,
+				B99E685A2BB2CA9E00ACC32E /* DateElement.swift in Sources */,
+				B96559862BB4C787005F5B11 /* HealthStore.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -439,23 +501,29 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = 75Hard/75Hard.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"75Hard/Preview Content\"";
 				DEVELOPMENT_TEAM = U8YP2728YQ;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_LSApplicationCategoryType = "";
+				INFOPLIST_KEY_NSFileProviderDomainUsageDescription = "";
+				INFOPLIST_KEY_NSHealthShareUsageDescription = "required to to display step count";
+				INFOPLIST_KEY_NSHealthUpdateUsageDescription = "required to to display step count";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "com.julianmueller.-5Hard";
+				PRODUCT_BUNDLE_IDENTIFIER = com.julian.mueller.75Hard;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -468,23 +536,29 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = 75Hard/75Hard.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"75Hard/Preview Content\"";
 				DEVELOPMENT_TEAM = U8YP2728YQ;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_LSApplicationCategoryType = "";
+				INFOPLIST_KEY_NSFileProviderDomainUsageDescription = "";
+				INFOPLIST_KEY_NSHealthShareUsageDescription = "required to to display step count";
+				INFOPLIST_KEY_NSHealthUpdateUsageDescription = "required to to display step count";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "com.julianmueller.-5Hard";
+				PRODUCT_BUNDLE_IDENTIFIER = com.julian.mueller.75Hard;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
