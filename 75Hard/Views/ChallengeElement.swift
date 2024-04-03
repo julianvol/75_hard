@@ -7,14 +7,17 @@
 
 import SwiftUI
 
+
 struct ChallengeElement: View {
 
     @Binding var challenge: Challenge
     @Binding var stepCount: Int
-    
+
     @State private var scale: CGFloat = 1.0
+    
     @State private var textColor: Color = .white
     @State private var isTouching: Bool = false
+    @State private var hasTappedLongEnough: Bool = false
     
     @Environment(\.colorScheme) var colorScheme
     
@@ -25,7 +28,6 @@ struct ChallengeElement: View {
         ZStack {
             RoundedRectangle(cornerRadius: 20.0)
                 .foregroundColor(Color(challenge.isCompleted ? challenge.color : challenge.color_uncompleted))
-                //.opacity(challenge.isCompleted ? 0.9 : colorScheme == .light ? 0.1 : 0.3)
             VStack {
                 Image(systemName: challenge.imageName)
                     .resizable()
@@ -43,7 +45,6 @@ struct ChallengeElement: View {
         }
         .frame(maxWidth: .infinity, maxHeight: .infinity)
         .scaleEffect(scale)
-        //.background(.white)
         .cornerRadius(20.0)
         .gesture(DragGesture(minimumDistance: 0.0, coordinateSpace: .global)
             .onChanged { _ in
@@ -52,10 +53,21 @@ struct ChallengeElement: View {
                 } else {
                     self.isTouching.toggle()
                     if (challenge.name == "Steps" && stepCount < 10000) {
-                        self.textColor = Color("failed")
-                    }
-                    withAnimation() {
-                        self.scale = 0.95
+                        self.textColor = Color("challenge_text_failed")
+                    } else {
+                        Timer.scheduledTimer(withTimeInterval: 0.5, repeats: false) { _ in
+                            if (isTouching) { // send feedback
+                                self.hasTappedLongEnough = true
+                                let generator = UIImpactFeedbackGenerator(style: .rigid)
+                                generator.impactOccurred()
+                                withAnimation(.easeInOut(duration: 0.5)) {
+                                    self.challenge.isCompleted.toggle()
+                                }
+                            }
+                        }
+                        withAnimation(.easeInOut(duration: 0.25)) {
+                            self.scale = 0.85
+                        }
                     }
                 }
             }
@@ -64,19 +76,24 @@ struct ChallengeElement: View {
                     return
                 } else {
                     self.isTouching.toggle()
-                    withAnimation() {
-                        if (!(challenge.name == "Steps" && stepCount < 10000)) {
-                            self.challenge.isCompleted.toggle()
+                    withAnimation(.easeInOut(duration: 0.5)) {
+                        if (!(challenge.name == "Steps" && stepCount < 10000) && hasTappedLongEnough) {
+                            self.hasTappedLongEnough = false
                             saveChanges()
                         }
-                        self.scale = 1.0
-                        self.textColor = challenge.isCompleted ? .white : .black
+                        self.scale = challenge.isCompleted ? 1.0 : 0.9
+                        self.textColor = challenge.isCompleted ? Color("challenge_text_completed") : Color("challenge_text_uncompleted")
                     }
                 }
             }
         )
         .onAppear {
-            self.textColor = challenge.isCompleted ? .white : .black
+            if (challenge.name == "Steps" && stepCount < 10000) {
+                challenge.isCompleted = false
+                saveChanges()
+            }
+            self.textColor = challenge.isCompleted ? Color("challenge_text_completed") : Color("challenge_text_uncompleted")
+            self.scale = challenge.isCompleted ? 1.0 : 0.9
         }
     }
 
@@ -84,18 +101,14 @@ struct ChallengeElement: View {
     func formatNumber(number: Int) -> String {
         let formatter = NumberFormatter()
         formatter.numberStyle = .decimal
-//        formatter.locale = Locale.current
         return formatter.string(from: NSNumber(value: number)) ?? "- - - -"
     }
 }
 
 #Preview {
-    let dummyChallenge = Challenge(name: "Steps", imageName: "figure.run", color: "diet", color_uncompleted: "diet_uncompleted", isCompleted: true)
-            // Create a Binding to the dummy challenge
+    let dummyChallenge = Challenge(name: "Random\ntask", imageName: "figure.run", color: "diet", color_uncompleted: "diet_uncompleted", isCompleted: true)
             let binding = Binding<Challenge>(get: { dummyChallenge }, set: { _ in })
 
-            // Preview the ChallengeElement with the binding
     return ChallengeElement(challenge: binding, stepCount: .constant(9999), allowTap: true, saveChanges: {})
-//                .previewLayout(.sizeThatFits)
-                .padding()
+        .frame(width: 175, height: 100)
 }

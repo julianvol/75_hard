@@ -16,7 +16,6 @@ struct CalendarSheet: View {
     
     var body: some View {
         VStack {
-            
             HStack {
                 Text("Calendar")
                     .font(.title)
@@ -27,6 +26,8 @@ struct CalendarSheet: View {
             .padding(.horizontal)
 
             daysGrid
+            
+            Spacer()
             
             HStack {
                 Image(systemName: "trash")
@@ -67,17 +68,16 @@ struct CalendarSheet: View {
             ForEach(0..<75, id: \.self) { index in
                 RoundedRectangle(cornerRadius: 15)
                     .foregroundColor(.clear)
-                    //.foregroundColor(index <= todaysChallengeDayIndex && challengeDays[index].allChallengesCompleted() ? .green : index < todaysChallengeDayIndex && !challengeDays[index].allChallengesCompleted() ? .red : .clear)
                     .overlay(
                         ZStack {
                             Text("\(index + 1)")
                                 .fontWeight(index <= todaysChallengeDayIndex ? .heavy : .regular)
                                 .foregroundColor(index <= todaysChallengeDayIndex && challengeDays[index].allChallengesCompleted() ? .green :
-                                                    index < todaysChallengeDayIndex && !challengeDays[index].allChallengesCompleted() ? .red : .black)
+                                                    index < todaysChallengeDayIndex && !challengeDays[index].allChallengesCompleted() ? .red : Color("sf"))
                             RoundedRectangle(cornerRadius: 15)
                                 .stroke(index < todaysChallengeDayIndex && challengeDays[index].allChallengesCompleted() ? .green :
                                         index < todaysChallengeDayIndex && !challengeDays[index].allChallengesCompleted() ? .red :
-                                            index == todaysChallengeDayIndex ? .black : .clear,
+                                            index == todaysChallengeDayIndex ? Color("sf") : .clear,
                                         lineWidth: index == todaysChallengeDayIndex ? 3 : 1.5)	
                         }
                         

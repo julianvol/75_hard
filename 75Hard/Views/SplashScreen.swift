@@ -11,24 +11,23 @@ struct SplashScreen: View {
     @State private var isActive = false
     @State private var scale = 0.7
     @State private var opacity = 0.6
-    
+
+    @Environment(\.colorScheme) var colorScheme
+
     var body: some View {
         if (isActive) {
-            ContentView()
+            StepDataConsent()
         } else {
             VStack {
                 VStack {
                     Spacer()
-                    Image("AppSplash")
+                    Image(colorScheme == .light ? "AppSplash" : "AppSplash_dark")
                         .resizable()
                         .scaledToFit()
                         .frame(width: 300, height: 300)
                     Spacer()
                     Spacer()
                     Spacer()
-                    
-                    
-                    
                 }
                 .scaleEffect(scale)
                 .opacity(opacity)

@@ -9,7 +9,7 @@ import SwiftUI
 import HealthKit
 
 struct ContentView: View {
-    
+        
     @State private var selectedChallengeDayIndex: Int = 0
     @State private var todaysChallengeDayIndex: Int = 0
     @State private var challengeDays: [ChallengeDay] = generateChallengeDays()
@@ -17,59 +17,65 @@ struct ContentView: View {
     @State private var isCalendarSheetPresented = false
     @State private var isDevSheetPresented = false
     @State private var isPressing = false
-    
+    let healthStore = HealthStore()
+        
     var body: some View {
-        VStack {
-            Header(onTapCalendarAction: {
-                isCalendarSheetPresented.toggle()
-            })
+        ZStack {
+            Color(Color("background"))
+                .ignoresSafeArea()
+            VStack {
+                Header(onTapCalendarAction: {
+                    isCalendarSheetPresented.toggle()
+                })
                 .padding(.top)
-
-            DateElement(date: $challengeDays[selectedChallengeDayIndex].date, selectedChallengeDayIndex: $selectedChallengeDayIndex)
-                .padding(.top, 20)
-            ProgressBar(todaysChallengeDayIndex:  $todaysChallengeDayIndex, selectedChallengeDayIndex: $selectedChallengeDayIndex)
-                .frame(height: 10)
-                .padding(.bottom)
                 
-            ChallengeGrid(challengeDays: $challengeDays, stepCounts: $stepCounts, selectedChallengeDayIndex: $selectedChallengeDayIndex)
-                .padding(.top)
-            
-            Spacer()
-            Button("Dev") {
-                isDevSheetPresented.toggle()
+                DateElement(date: $challengeDays[selectedChallengeDayIndex].date, selectedChallengeDayIndex: $selectedChallengeDayIndex)
+                    .padding(.top, 20)
+                ProgressBar(todaysChallengeDayIndex:  $todaysChallengeDayIndex, selectedChallengeDayIndex: $selectedChallengeDayIndex)
+                    .frame(height: 10)
+                    .padding(.bottom)
+                
+                ChallengeGrid(challengeDays: $challengeDays, stepCounts: $stepCounts, selectedChallengeDayIndex: $selectedChallengeDayIndex)
+                    .padding(.top)
+                
+                Spacer()
+                Button("Dev") {
+                    isDevSheetPresented.toggle()
+                }
             }
-        }
-        .padding()
-        .sheet(isPresented: $isCalendarSheetPresented, onDismiss: {}, content: {
-            CalendarSheet(challengeDays: $challengeDays, isCalendarSheetPresented: $isCalendarSheetPresented, selectedChallengeDayIndex: $selectedChallengeDayIndex, todaysChallengeDayIndex: $todaysChallengeDayIndex, onTapResetAction: {
-                setData()
-                isCalendarSheetPresented.toggle()
+            .padding()
+            .sheet(isPresented: $isCalendarSheetPresented, onDismiss: {}, content: {
+                CalendarSheet(challengeDays: $challengeDays, isCalendarSheetPresented: $isCalendarSheetPresented, selectedChallengeDayIndex: $selectedChallengeDayIndex, todaysChallengeDayIndex: $todaysChallengeDayIndex, onTapResetAction: {
+                    setData()
+                    isCalendarSheetPresented.toggle()
+                })
             })
-        })
-        .sheet(isPresented: $isDevSheetPresented, content: {
-            DevSheet(onLoadDataLessButtonClickedAction: {
-                setData(offset: -5)
-            }, onLoadDataBeginButtonClickedAction: {
-                setData(offset: 0)
-            }, onLoadDataFewButtonClickedAction: {
-                setData(offset: 27)
-            }, onLoadDataMiddleButtonClickedAction: {
-                setData(offset: 57)
-            }, onLoadDataEndButtonClickedAction: {
-                setData(offset: 74)
-            }, onLoadDataOverButtonClickedAction: {
-                setData(offset: 80)
+            .sheet(isPresented: $isDevSheetPresented, content: {
+                DevSheet(onLoadDataLessButtonClickedAction: {
+                    setData(offset: -5)
+                }, onLoadDataBeginButtonClickedAction: {
+                    setData(offset: 0)
+                }, onLoadDataFewButtonClickedAction: {
+                    setData(offset: 27)
+                }, onLoadDataMiddleButtonClickedAction: {
+                    setData(offset: 57)
+                }, onLoadDataEndButtonClickedAction: {
+                    setData(offset: 74)
+                }, onLoadDataOverButtonClickedAction: {
+                    setData(offset: 80)
+                })
             })
-        })
-        .onAppear {
-            getData()
-            startTimer()
+            .onAppear {
+                getData()
+                fetchStepCounts()
+                startTimer()
+            }
         }
     }
     
     private func startTimer() { // TODO use background delivery instead
         Timer.scheduledTimer(withTimeInterval: 5, repeats: true) { _ in
-            fetchSteps()
+            fetchStepCounts()
         }
     }
   
@@ -94,22 +100,23 @@ struct ContentView: View {
     private func getData() {
         challengeDays = DataStore.shared.loadChallengeDays()
         calculateIndices()
-        fetchSteps()
+        fetchStepCounts()
     }
     private func setData(offset: Int = 0) {
         challengeDays = generateChallengeDays(offset: offset)
         DataStore.shared.saveChallengeDays(challengeDays)
         calculateIndices()
-        fetchSteps()
+        fetchStepCounts()
     }
-    private func fetchSteps() {
+    private func fetchStepCounts() {
         Task {
-            await DataStore.shared.requestStepCountAuthorization()
+            healthStore.requestStepCountAuthorization()
             do {
-                try await stepCounts = DataStore.shared.fetchStepCounts(startDate: challengeDays[0].date)
+                try await stepCounts = healthStore.fetchStepCounts(startDate: challengeDays[0].date)
             } catch {
                 print(error)
             }
+            print(stepCounts)
         }
     }
 }

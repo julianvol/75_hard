@@ -11,12 +11,11 @@ struct ChallengeGrid: View {
     @Binding var challengeDays: [ChallengeDay]
     @Binding var stepCounts: [Int]
     @Binding var selectedChallengeDayIndex: Int
-    
-    
+        
     var body: some View {
         LazyVGrid(columns: [GridItem(.flexible(), spacing: 15), GridItem(.flexible())], spacing: 15) {
             ForEach($challengeDays[selectedChallengeDayIndex].challenges.indices, id: \.self) { challengeIndex in
-                ChallengeElement(challenge: challengeBinding(for: challengeIndex), stepCount: stepCounts.count == 75 ? $stepCounts[selectedChallengeDayIndex] : .constant(0), allowTap: challengeDays[selectedChallengeDayIndex].date <= Date()) {
+                ChallengeElement(challenge: challengeBinding(for: challengeIndex), stepCount: stepCounts.count == 75 ? $stepCounts[selectedChallengeDayIndex] : .constant(0), allowTap: challengeDays[selectedChallengeDayIndex].date == Calendar.current.startOfDay(for: Date())) {
                     DataStore.shared.saveChallengeDays(challengeDays)
                     }
             }
@@ -30,8 +29,6 @@ struct ChallengeGrid: View {
         )
     }
 }
-
-
 
 #Preview {
     ChallengeGrid(challengeDays: Binding<[ChallengeDay]>(get: {
