@@ -8,13 +8,16 @@
 import SwiftUI
 
 struct DateElement: View {
-    @Binding var date: Date
-    @Binding var selectedChallengeDayIndex: Int
+    
+    @EnvironmentObject var dataStore: DataStore
+
+    //@Binding var date: Date
+    //@Binding var selectedChallengeDayIndex: Int
     var body: some View {
         HStack {
-            Text("Day " + String(selectedChallengeDayIndex + 1))
+            Text("Day " + String(dataStore.selectedChallengeDayIndex + 1))
             Spacer()
-            Text(formatDate(date: date))
+            Text(formatDate(date: dataStore.challengeConstructs[dataStore.selectedChallengeIndex].challengeDays[dataStore.selectedChallengeDayIndex].date))
         }
         .font(.subheadline)
     }

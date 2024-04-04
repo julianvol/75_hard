@@ -66,7 +66,7 @@ struct ChallengeElement: View {
                             }
                         }
                         withAnimation(.easeInOut(duration: 0.25)) {
-                            self.scale = 0.85
+                            self.scale = challenge.isCompleted ? 0.9 : 1.0
                         }
                     }
                 }
@@ -88,7 +88,7 @@ struct ChallengeElement: View {
             }
         )
         .onAppear {
-            if (challenge.name == "Steps" && stepCount < 10000) {
+            if (challenge.isCompleted && challenge.name == "Steps" && stepCount < 10000) {
                 challenge.isCompleted = false
                 saveChanges()
             }

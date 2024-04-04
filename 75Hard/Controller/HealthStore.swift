@@ -8,6 +8,10 @@
 import Foundation
 import HealthKit
 
+enum HealthError: Error {
+    case healthDataNotAvailable
+}
+
 class HealthStore {
     
     let healthStore = HKHealthStore()
@@ -20,9 +24,9 @@ class HealthStore {
         let stepType = HKQuantityType.quantityType(forIdentifier: HKQuantityTypeIdentifier.stepCount)!
         healthStore.requestAuthorization(toShare: [], read: [stepType]) { (success, error) in
             if success {
-                print("Step count access granted")
+                //print("Step count access granted")
             } else {
-                print("Error requesting step count access: \(error?.localizedDescription ?? "Unknown error")")
+                //print("Error requesting step count access: \(error?.localizedDescription ?? "Unknown error")")
             }
         }
     }

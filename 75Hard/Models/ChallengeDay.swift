@@ -12,11 +12,11 @@ struct ChallengeDay: Codable {
     var challenges: [Challenge]
     
     func allChallengesCompleted() -> Bool {
-            for challenge in challenges {
-                if !challenge.isCompleted {
-                    return false
-                }
+        for challenge in challenges {
+            if !challenge.isCompleted {
+                return false
             }
-            return true
         }
+        return true
+    }
 }

@@ -9,9 +9,15 @@ import SwiftUI
 
 @main
 struct _5HardApp: App {
+    @StateObject var navigationState = NavigationState()
+    @StateObject var dataStore = DataStore()
+
     var body: some Scene {
         WindowGroup {
-            SplashScreen()
+            ContentView()
+                .environmentObject(navigationState)
+                .environmentObject(dataStore)
+            
         }
     }
 }
