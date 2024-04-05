@@ -26,7 +26,6 @@ class DataStore: ObservableObject {
         guard let data = UserDefaults.standard.data(forKey: challengesKey) else {
             print("no list saved -> generatingStandardList")
             challenges = generateChallengeList()
-            saveChallenges()
             return
         }
 

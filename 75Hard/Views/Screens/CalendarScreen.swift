@@ -76,19 +76,11 @@ struct CalendarScreen: View {
     }
         
     func onTapResetAction() {
-        //setData()
         dataStore.challenges[dataStore.selectedChallengeIndex].reset()
-        //dataStore.saveChallenges()
         dataStore.calculateIndices(forceCalculateSelectedChallengeDayIndex: true)
     }
     func onTapNavigateBackAction() {
         navigationState.changeScreen(to: .Home)
-    }
-    
-    private func getData() {
-        // challenges = DataStore.shared.loadChallenges()
-        //dataStore.loadChallenges()
-        //dataStore.calculateIndices()
     }
 }
 

@@ -21,7 +21,6 @@ struct SelectChallengesScreen: View {
                         .onTapGesture {
                             if (!dataStore.challenges[index].isSelected) {
                                 selectChallenge(at: index)
-                                //dataStore.saveChallenges()
                             }
                         }
                 }
@@ -35,7 +34,6 @@ struct SelectChallengesScreen: View {
         }
         .onAppear {
             print("onAppear() -> SelectScreen")
-            //dataStore.loadChallenges()
         }
     }
     private func selectChallenge(at index: Int) {

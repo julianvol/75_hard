@@ -12,7 +12,7 @@ struct HomeScreen: View {
         
     @EnvironmentObject var dataStore: DataStore
     
-    @State private var stepCounts: [Int] = []
+    @State private var stepCounts: [Int] = Array(repeating: 0, count: 75)
     let healthStore = HealthStore()
     
     @State private var isDevSheetPresented: Bool = false
@@ -29,7 +29,7 @@ struct HomeScreen: View {
                     .frame(height: 10)
                     .padding(.bottom)
                 
-                ChallengeGrid(stepCounts: $stepCounts)
+                ChallengeTaskGrid(stepCount: $stepCounts[dataStore.selectedChallengeDayIndex])
                 .padding(.top)
                 
                 Spacer()
@@ -54,8 +54,7 @@ struct HomeScreen: View {
                 })
             })
             .onAppear {
-                print("onAppear() -> HomeScreen \(dataStore.selectedChallengeDayIndex)")
-                getData()
+                print("onAppear() -> HomeScreen")
                 fetchStepCounts()
                 startTimer()
             }
@@ -67,14 +66,8 @@ struct HomeScreen: View {
             fetchStepCounts()
         }
     }
-    
-    private func getData() {
-        //dataStore.loadChallenges()
-        //dataStore.calculateIndices()
-    }
     private func setData(offset: Int = 0) {
         dataStore.challenges[dataStore.selectedChallengeIndex].reset(withOffset: offset)
-        //dataStore.saveChallenges()
         dataStore.calculateIndices(forceCalculateSelectedChallengeDayIndex: true)
         fetchStepCounts()
         isDevSheetPresented = false

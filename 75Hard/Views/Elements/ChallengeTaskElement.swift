@@ -22,7 +22,6 @@ struct ChallengeTaskElement: View {
     @Environment(\.colorScheme) var colorScheme
     
     let allowTap: Bool
-    let saveChanges: () -> Void // Closure to handle tap action
     
     var body: some View {
         ZStack {
@@ -79,7 +78,6 @@ struct ChallengeTaskElement: View {
                     withAnimation(.easeInOut(duration: 0.5)) {
                         if (!(challengeTask.name == "Steps" && stepCount < 10000) && hasTappedLongEnough) {
                             self.hasTappedLongEnough = false
-                            saveChanges()
                         }
                         self.scale = challengeTask.isCompleted ? 1.0 : 0.9
                         self.textColor = challengeTask.isCompleted ? Color("challenge_text_completed") : Color("challenge_text_uncompleted")
@@ -90,7 +88,6 @@ struct ChallengeTaskElement: View {
         .onAppear {
             if (challengeTask.isCompleted && challengeTask.name == "Steps" && stepCount < 10000) {
                 challengeTask.isCompleted = false
-                saveChanges()
             }
             self.textColor = challengeTask.isCompleted ? Color("challenge_text_completed") : Color("challenge_text_uncompleted")
             self.scale = challengeTask.isCompleted ? 1.0 : 0.9
@@ -109,6 +106,6 @@ struct ChallengeTaskElement: View {
     let dummyChallenge = ChallengeTask(name: "Random\ntask", imageName: "figure.run", color: "diet", color_uncompleted: "diet_uncompleted", isCompleted: true)
             let binding = Binding<ChallengeTask>(get: { dummyChallenge }, set: { _ in })
 
-    return ChallengeTaskElement(challengeTask: binding, stepCount: .constant(9999), allowTap: true, saveChanges: {})
+    return ChallengeTaskElement(challengeTask: binding, stepCount: .constant(9999), allowTap: true)
         .frame(width: 175, height: 100)
 }
