@@ -11,6 +11,7 @@ struct CalendarScreen: View {
     @EnvironmentObject var navigationState: NavigationState
     @EnvironmentObject var dataStore: DataStore
 
+    @State private var isShowingConfirmation = false
     //@State var challengeConstructs: [ChallengeConstruct] = generateChallengeConstructList() // TODO, list with loading placeholders
     //@State var selectedChallengeIndex: Int = 0
     //@State var selectedChallengeDayIndex: Int = 0
@@ -38,8 +39,7 @@ struct CalendarScreen: View {
                     .frame(width: 30, height: 30)
                     .foregroundColor(Color("sf"))
                     .onTapGesture{
-                        onTapResetAction()
-                        onTapNavigateBackAction()
+                        isShowingConfirmation = true
                     }
                 
                 Spacer()
@@ -63,6 +63,16 @@ struct CalendarScreen: View {
             .padding([.leading, .trailing], 30)
             .padding(.bottom)
 
+        }
+        .alert(isPresented: $isShowingConfirmation) {
+            Alert(
+                title: Text("Reset Progress"),
+                message: Text("Are you sure you want to reset your Progress? This Action cannot be reversed!"),
+                primaryButton: .destructive(Text("Yes")) {
+                    onTapResetAction()
+                },
+                secondaryButton: .cancel()
+            )
         }
         .onAppear {
             print("onApper() -> CalendarScreen")
