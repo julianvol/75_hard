@@ -17,7 +17,7 @@ struct DateElement: View {
         HStack {
             Text("Day " + String(dataStore.selectedChallengeDayIndex + 1))
             Spacer()
-            Text(formatDate(date: dataStore.challengeConstructs[dataStore.selectedChallengeIndex].challengeDays[dataStore.selectedChallengeDayIndex].date))
+            Text(formatDate(date: dataStore.challenges[dataStore.selectedChallengeIndex].challengeDays[dataStore.selectedChallengeDayIndex].date))
         }
         .font(.subheadline)
     }
@@ -28,7 +28,7 @@ struct DateElement: View {
     }
 }
 
-//let comparisonDate = Date.now
-//#Preview {
-//    DateElement(date: Binding.constant(Date()), detailChallengeDayIndex: Binding.constant(0))
-//}
+let comparisonDate = Date.now
+#Preview {
+    DateElement()
+}

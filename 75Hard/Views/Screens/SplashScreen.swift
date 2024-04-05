@@ -48,12 +48,6 @@ struct SplashScreen: View {
         }
     }
 }
-/*onAppear() -> ContentView
- onAppear() -> SplashScreen
- onAppear() -> ConsentScreen
- onChange
- with animation
- onAppear() -> MainScreen*/
 
 #Preview {
     SplashScreen(onEnd: {})

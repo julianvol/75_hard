@@ -9,7 +9,7 @@ import Foundation
 
 class DataStore: ObservableObject {
 
-    @Published var challengeConstructs: [ChallengeConstruct] = generatePlaceholderChallengeConstructList()
+    @Published var challenges: [Challenge] = generateChallengeListPlaceholder()
     @Published var selectedChallengeIndex: Int = 0
     @Published var todaysChallengeDayIndex: Int = 0
     @Published var selectedChallengeDayIndex: Int = 0
@@ -18,10 +18,10 @@ class DataStore: ObservableObject {
     private let challengesKey = "challengeList"
 
     // Save challenge days to UserDefaults
-    func saveChallengeConstructs() {
+    func saveChallenges() {
         do {
             let encoder = JSONEncoder()
-            let data = try encoder.encode(self.challengeConstructs)
+            let data = try encoder.encode(self.challenges)
             UserDefaults.standard.set(data, forKey: challengesKey)
             print("saved challenges")
         } catch {
@@ -30,18 +30,18 @@ class DataStore: ObservableObject {
     }
 
     // Load challenge days from UserDefaults
-    func loadChallengeConstructs() {
+    func loadChallenges() {
         guard let data = UserDefaults.standard.data(forKey: challengesKey) else {
             print("no list saved -> generatingStandardList")
-            challengeConstructs = generateChallengeConstructList()
-            saveChallengeConstructs()
+            challenges = generateChallengeList()
+            saveChallenges()
             return
         }
 
         do {
             let decoder = JSONDecoder()
-            let challengeConstructs = try decoder.decode([ChallengeConstruct].self, from: data)
-            self.challengeConstructs =  challengeConstructs
+            let challenges = try decoder.decode([Challenge].self, from: data)
+            self.challenges =  challenges
             print("loaded challenges")
         } catch {
             print("Error decoding challenge days: \(error)")
@@ -49,8 +49,8 @@ class DataStore: ObservableObject {
     }
     
     func calculateSelectedChallengeIndex() -> Int {
-        for index in challengeConstructs.indices {
-            if (challengeConstructs[index].isSelected) {
+        for index in challenges.indices {
+            if (challenges[index].isSelected) {
                 return index
             }
         }
@@ -60,8 +60,8 @@ class DataStore: ObservableObject {
     
     func calculateTodaysChallengeDayIndex() -> Int {
         let todaysChallengeDay = Calendar.current.startOfDay(for: Date.now)
-        for Index in 0..<challengeConstructs[selectedChallengeIndex].challengeDays.count {
-            let tmpChallengeDay = Calendar.current.startOfDay(for: challengeConstructs[selectedChallengeIndex].challengeDays[Index].date)
+        for Index in 0..<challenges[selectedChallengeIndex].challengeDays.count {
+            let tmpChallengeDay = Calendar.current.startOfDay(for: challenges[selectedChallengeIndex].challengeDays[Index].date)
             if (tmpChallengeDay > todaysChallengeDay) { // start day lays in the furture
                 return -1
             } else if (tmpChallengeDay == todaysChallengeDay) { // found todays day
@@ -82,13 +82,13 @@ class DataStore: ObservableObject {
     }
     
     func isDayComplete(index: Int) -> Bool {
-        challengeConstructs[selectedChallengeIndex].challengeDays[index].allChallengesCompleted()
+        challenges[selectedChallengeIndex].challengeDays[index].allChallengeTasksCompleted
     }
     
     var selectedChallengeName: String {
-        challengeConstructs[selectedChallengeIndex].name
+        challenges[selectedChallengeIndex].name
     }
     var selectedChallengePhrase: String {
-        challengeConstructs[selectedChallengeIndex].phrase
+        challenges[selectedChallengeIndex].phrase
     }
 }

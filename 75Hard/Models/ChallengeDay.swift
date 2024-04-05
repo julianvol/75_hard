@@ -9,11 +9,11 @@ import Foundation
 
 struct ChallengeDay: Codable {
     var date : Date
-    var challenges: [Challenge]
+    var challengeTasks: [ChallengeTask]
     
-    func allChallengesCompleted() -> Bool {
-        for challenge in challenges {
-            if !challenge.isCompleted {
+    var allChallengeTasksCompleted: Bool {
+        for challengeTask in challengeTasks {
+            if !challengeTask.isCompleted {
                 return false
             }
         }

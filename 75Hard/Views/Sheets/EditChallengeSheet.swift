@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct EditChallengesSheet: View {
+struct EditChallengeSheet: View {
     var body: some View {
         Text("Edit Challenges Sheet!")
         Button("Back") {
@@ -17,5 +17,5 @@ struct EditChallengesSheet: View {
 }
 
 #Preview {
-    EditChallengesSheet()
+    EditChallengeSheet()
 }

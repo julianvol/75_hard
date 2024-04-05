@@ -12,7 +12,7 @@ struct CalendarScreen: View {
     @EnvironmentObject var dataStore: DataStore
 
     @State private var isShowingConfirmation = false
-    //@State var challengeConstructs: [ChallengeConstruct] = generateChallengeConstructList() // TODO, list with loading placeholders
+    //@State var challenges: [Challenge] = generateChallengeList() // TODO, list with loading placeholders
     //@State var selectedChallengeIndex: Int = 0
     //@State var selectedChallengeDayIndex: Int = 0
     //@State var todaysChallengeDayIndex: Int = 0
@@ -28,7 +28,7 @@ struct CalendarScreen: View {
             }
             .padding(.horizontal)
 
-            DaysGrid()
+            ChallengeDaysGrid()
             
             Spacer()
             
@@ -81,8 +81,8 @@ struct CalendarScreen: View {
         
     func onTapResetAction() {
         //setData()
-        dataStore.challengeConstructs[dataStore.selectedChallengeIndex].reset()
-        dataStore.saveChallengeConstructs()
+        dataStore.challenges[dataStore.selectedChallengeIndex].reset()
+        dataStore.saveChallenges()
         dataStore.calculateIndices(forceCalculateSelectedChallengeDayIndex: true)
     }
     func onTapNavigateBackAction() {
@@ -90,14 +90,14 @@ struct CalendarScreen: View {
     }
     
     private func getData() {
-        // challengeConstructs = DataStore.shared.loadChallengeConstructs()
-        dataStore.loadChallengeConstructs()
+        // challenges = DataStore.shared.loadChallenges()
+        dataStore.loadChallenges()
         dataStore.calculateIndices()
     }
     private func setData(offset: Int = 0) {
         // TODO fix, that the challengeDays are resetet to the right ChallengeDayList
-        dataStore.challengeConstructs[dataStore.selectedChallengeIndex].challengeDays = generateChallengeDayList(offset: offset)
-        dataStore.saveChallengeConstructs()
+        dataStore.challenges[dataStore.selectedChallengeIndex].challengeDays = generateChallengeDayList(offset: offset)
+        dataStore.saveChallenges()
         dataStore.calculateIndices()
     }
 }

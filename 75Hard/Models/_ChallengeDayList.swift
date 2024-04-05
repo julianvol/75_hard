@@ -7,13 +7,13 @@
 
 import Foundation
 
-func generateChallengeDayList(challengeTasks: [Challenge] = StandardChallengeList, offset: Int = 0) -> [ChallengeDay] {
+func generateChallengeDayList(challengeTasks: [ChallengeTask] = ChallengeTaskList_Standard, offset: Int = 0) -> [ChallengeDay] {
     
     var challengeDays: [ChallengeDay] = []
     // Create 75 ChallengeDay objects with dates incremented by one day starting today
     for i in 0..<75 {
         if let date = Calendar.current.date(byAdding: .day, value: i-offset, to: Calendar.current.startOfDay(for: Date())) {
-            let challengeDay = ChallengeDay(date: date, challenges: challengeTasks)
+            let challengeDay = ChallengeDay(date: date, challengeTasks: challengeTasks)
             challengeDays.append(challengeDay)
         }
     }
@@ -26,7 +26,7 @@ func generatePlaceholderChallengeDayList() -> [ChallengeDay] {
     // Create 75 ChallengeDay objects with dates incremented by one day starting today
     for i in 0..<75 {
         if let date = Calendar.current.date(byAdding: .day, value: i, to: Calendar.current.startOfDay(for: Date())) {
-            let challengeDay = ChallengeDay(date: date, challenges: PlaceholderChallengeList)
+            let challengeDay = ChallengeDay(date: date, challengeTasks: ChallengeTaskListPlaceholder)
             challengeDays.append(challengeDay)
         }
     }

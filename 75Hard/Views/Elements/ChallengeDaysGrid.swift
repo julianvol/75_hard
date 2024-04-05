@@ -1,5 +1,5 @@
 //
-//  DaysGrid.swift
+//  ChallengeDaysGrid.swift
 //  75Hard
 //
 //  Created by Julian Müller on 04.04.24.
@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct DaysGrid: View {
+struct ChallengeDaysGrid: View {
 
     @EnvironmentObject var navigationState: NavigationState
     @EnvironmentObject var dataStore: DataStore
@@ -59,5 +59,5 @@ struct DaysGrid: View {
 }
 
 #Preview {
-    DaysGrid()
+    ChallengeDaysGrid()
 }

@@ -15,23 +15,23 @@
 		B90D0E512BB1FDFD000F6DDB /* _5HardUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B90D0E502BB1FDFD000F6DDB /* _5HardUITests.swift */; };
 		B90D0E532BB1FDFD000F6DDB /* _5HardUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B90D0E522BB1FDFD000F6DDB /* _5HardUITestsLaunchTests.swift */; };
 		B90D0E602BB20090000F6DDB /* Header.swift in Sources */ = {isa = PBXBuildFile; fileRef = B90D0E5F2BB20090000F6DDB /* Header.swift */; };
-		B90D0E622BB2048E000F6DDB /* ChallengeElement.swift in Sources */ = {isa = PBXBuildFile; fileRef = B90D0E612BB2048E000F6DDB /* ChallengeElement.swift */; };
-		B90D0E642BB20A79000F6DDB /* _ChallengeList.swift in Sources */ = {isa = PBXBuildFile; fileRef = B90D0E632BB20A79000F6DDB /* _ChallengeList.swift */; };
-		B90D0E662BB20B5C000F6DDB /* Challenge.swift in Sources */ = {isa = PBXBuildFile; fileRef = B90D0E652BB20B5C000F6DDB /* Challenge.swift */; };
-		B91C68DF2BBE92C40048A62C /* DaysGrid.swift in Sources */ = {isa = PBXBuildFile; fileRef = B91C68DE2BBE92C40048A62C /* DaysGrid.swift */; };
+		B90D0E622BB2048E000F6DDB /* ChallengeTaskElement.swift in Sources */ = {isa = PBXBuildFile; fileRef = B90D0E612BB2048E000F6DDB /* ChallengeTaskElement.swift */; };
+		B90D0E642BB20A79000F6DDB /* _ChallengeTaskList.swift in Sources */ = {isa = PBXBuildFile; fileRef = B90D0E632BB20A79000F6DDB /* _ChallengeTaskList.swift */; };
+		B90D0E662BB20B5C000F6DDB /* ChallengeTask.swift in Sources */ = {isa = PBXBuildFile; fileRef = B90D0E652BB20B5C000F6DDB /* ChallengeTask.swift */; };
+		B91C68DF2BBE92C40048A62C /* ChallengeDaysGrid.swift in Sources */ = {isa = PBXBuildFile; fileRef = B91C68DE2BBE92C40048A62C /* ChallengeDaysGrid.swift */; };
 		B93293D12BB62E9E00396693 /* DevSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = B93293D02BB62E9D00396693 /* DevSheet.swift */; };
 		B9332CE02BB2E30A000495D0 /* DataStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9332CDF2BB2E30A000495D0 /* DataStore.swift */; };
 		B936426B2BBB19A800A80DFB /* SplashScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = B936426A2BBB19A800A80DFB /* SplashScreen.swift */; };
 		B93E7D4D2BB245AA0002EDFA /* CalendarScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = B93E7D4C2BB245AA0002EDFA /* CalendarScreen.swift */; };
 		B96559862BB4C787005F5B11 /* HealthStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = B96559852BB4C787005F5B11 /* HealthStore.swift */; };
-		B96929AF2BBDAE28006326B0 /* ChallengeConstructElement.swift in Sources */ = {isa = PBXBuildFile; fileRef = B96929AE2BBDAE28006326B0 /* ChallengeConstructElement.swift */; };
-		B96929B12BBDC02F006326B0 /* _ChallengeConstructList.swift in Sources */ = {isa = PBXBuildFile; fileRef = B96929B02BBDC02E006326B0 /* _ChallengeConstructList.swift */; };
+		B96929AF2BBDAE28006326B0 /* ChallengeElement.swift in Sources */ = {isa = PBXBuildFile; fileRef = B96929AE2BBDAE28006326B0 /* ChallengeElement.swift */; };
+		B96929B12BBDC02F006326B0 /* _ChallengeList.swift in Sources */ = {isa = PBXBuildFile; fileRef = B96929B02BBDC02E006326B0 /* _ChallengeList.swift */; };
 		B96A05F82BB9908D0031BD48 /* ChallengeGrid.swift in Sources */ = {isa = PBXBuildFile; fileRef = B96A05F72BB9908D0031BD48 /* ChallengeGrid.swift */; };
 		B9719F992BBE872F00108347 /* NavigationState.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9719F982BBE872F00108347 /* NavigationState.swift */; };
 		B9719F9B2BBE8A1100108347 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9719F9A2BBE8A1100108347 /* ContentView.swift */; };
-		B974F4302BBD7FD400EF111F /* EditChallengesSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = B974F42F2BBD7FD400EF111F /* EditChallengesSheet.swift */; };
+		B974F4302BBD7FD400EF111F /* EditChallengeSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = B974F42F2BBD7FD400EF111F /* EditChallengeSheet.swift */; };
 		B974F4322BBD848600EF111F /* SelectChallengesScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = B974F4312BBD848600EF111F /* SelectChallengesScreen.swift */; };
-		B974F4372BBD8E4500EF111F /* ChallengeConstruct.swift in Sources */ = {isa = PBXBuildFile; fileRef = B974F4362BBD8E4500EF111F /* ChallengeConstruct.swift */; };
+		B974F4372BBD8E4500EF111F /* Challenge.swift in Sources */ = {isa = PBXBuildFile; fileRef = B974F4362BBD8E4500EF111F /* Challenge.swift */; };
 		B99E685A2BB2CA9E00ACC32E /* DateElement.swift in Sources */ = {isa = PBXBuildFile; fileRef = B99E68592BB2CA9E00ACC32E /* DateElement.swift */; };
 		B99E685C2BB2D2B000ACC32E /* ChallengeDay.swift in Sources */ = {isa = PBXBuildFile; fileRef = B99E685B2BB2D2B000ACC32E /* ChallengeDay.swift */; };
 		B99E685E2BB2DB8C00ACC32E /* _ChallengeDayList.swift in Sources */ = {isa = PBXBuildFile; fileRef = B99E685D2BB2DB8C00ACC32E /* _ChallengeDayList.swift */; };
@@ -68,24 +68,24 @@
 		B90D0E502BB1FDFD000F6DDB /* _5HardUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = _5HardUITests.swift; sourceTree = "<group>"; };
 		B90D0E522BB1FDFD000F6DDB /* _5HardUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = _5HardUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		B90D0E5F2BB20090000F6DDB /* Header.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Header.swift; sourceTree = "<group>"; };
-		B90D0E612BB2048E000F6DDB /* ChallengeElement.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChallengeElement.swift; sourceTree = "<group>"; };
-		B90D0E632BB20A79000F6DDB /* _ChallengeList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = _ChallengeList.swift; sourceTree = "<group>"; };
-		B90D0E652BB20B5C000F6DDB /* Challenge.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Challenge.swift; sourceTree = "<group>"; };
-		B91C68DE2BBE92C40048A62C /* DaysGrid.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DaysGrid.swift; sourceTree = "<group>"; };
+		B90D0E612BB2048E000F6DDB /* ChallengeTaskElement.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChallengeTaskElement.swift; sourceTree = "<group>"; };
+		B90D0E632BB20A79000F6DDB /* _ChallengeTaskList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = _ChallengeTaskList.swift; sourceTree = "<group>"; };
+		B90D0E652BB20B5C000F6DDB /* ChallengeTask.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChallengeTask.swift; sourceTree = "<group>"; };
+		B91C68DE2BBE92C40048A62C /* ChallengeDaysGrid.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChallengeDaysGrid.swift; sourceTree = "<group>"; };
 		B93293D02BB62E9D00396693 /* DevSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DevSheet.swift; sourceTree = "<group>"; };
 		B9332CDF2BB2E30A000495D0 /* DataStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataStore.swift; sourceTree = "<group>"; };
 		B936426A2BBB19A800A80DFB /* SplashScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashScreen.swift; sourceTree = "<group>"; };
 		B93E7D4C2BB245AA0002EDFA /* CalendarScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarScreen.swift; sourceTree = "<group>"; };
 		B96559852BB4C787005F5B11 /* HealthStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HealthStore.swift; sourceTree = "<group>"; };
 		B96559872BB4CA23005F5B11 /* 75Hard.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = 75Hard.entitlements; sourceTree = "<group>"; };
-		B96929AE2BBDAE28006326B0 /* ChallengeConstructElement.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChallengeConstructElement.swift; sourceTree = "<group>"; };
-		B96929B02BBDC02E006326B0 /* _ChallengeConstructList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = _ChallengeConstructList.swift; sourceTree = "<group>"; };
+		B96929AE2BBDAE28006326B0 /* ChallengeElement.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChallengeElement.swift; sourceTree = "<group>"; };
+		B96929B02BBDC02E006326B0 /* _ChallengeList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = _ChallengeList.swift; sourceTree = "<group>"; };
 		B96A05F72BB9908D0031BD48 /* ChallengeGrid.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChallengeGrid.swift; sourceTree = "<group>"; };
 		B9719F982BBE872F00108347 /* NavigationState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationState.swift; sourceTree = "<group>"; };
 		B9719F9A2BBE8A1100108347 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
-		B974F42F2BBD7FD400EF111F /* EditChallengesSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditChallengesSheet.swift; sourceTree = "<group>"; };
+		B974F42F2BBD7FD400EF111F /* EditChallengeSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditChallengeSheet.swift; sourceTree = "<group>"; };
 		B974F4312BBD848600EF111F /* SelectChallengesScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectChallengesScreen.swift; sourceTree = "<group>"; };
-		B974F4362BBD8E4500EF111F /* ChallengeConstruct.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChallengeConstruct.swift; sourceTree = "<group>"; };
+		B974F4362BBD8E4500EF111F /* Challenge.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Challenge.swift; sourceTree = "<group>"; };
 		B99E68592BB2CA9E00ACC32E /* DateElement.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateElement.swift; sourceTree = "<group>"; };
 		B99E685B2BB2D2B000ACC32E /* ChallengeDay.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChallengeDay.swift; sourceTree = "<group>"; };
 		B99E685D2BB2DB8C00ACC32E /* _ChallengeDayList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = _ChallengeDayList.swift; sourceTree = "<group>"; };
@@ -180,12 +180,12 @@
 		B92284BF2BB6D9E500DCE11C /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				B90D0E652BB20B5C000F6DDB /* Challenge.swift */,
+				B90D0E652BB20B5C000F6DDB /* ChallengeTask.swift */,
 				B99E685B2BB2D2B000ACC32E /* ChallengeDay.swift */,
-				B974F4362BBD8E4500EF111F /* ChallengeConstruct.swift */,
-				B90D0E632BB20A79000F6DDB /* _ChallengeList.swift */,
+				B974F4362BBD8E4500EF111F /* Challenge.swift */,
+				B90D0E632BB20A79000F6DDB /* _ChallengeTaskList.swift */,
 				B99E685D2BB2DB8C00ACC32E /* _ChallengeDayList.swift */,
-				B96929B02BBDC02E006326B0 /* _ChallengeConstructList.swift */,
+				B96929B02BBDC02E006326B0 /* _ChallengeList.swift */,
 				B9719F982BBE872F00108347 /* NavigationState.swift */,
 			);
 			path = Models;
@@ -229,10 +229,10 @@
 				B90D0E5F2BB20090000F6DDB /* Header.swift */,
 				B9CBF1D22BB23283002BBB25 /* ProgressBar.swift */,
 				B99E68592BB2CA9E00ACC32E /* DateElement.swift */,
-				B90D0E612BB2048E000F6DDB /* ChallengeElement.swift */,
+				B90D0E612BB2048E000F6DDB /* ChallengeTaskElement.swift */,
 				B96A05F72BB9908D0031BD48 /* ChallengeGrid.swift */,
-				B96929AE2BBDAE28006326B0 /* ChallengeConstructElement.swift */,
-				B91C68DE2BBE92C40048A62C /* DaysGrid.swift */,
+				B96929AE2BBDAE28006326B0 /* ChallengeElement.swift */,
+				B91C68DE2BBE92C40048A62C /* ChallengeDaysGrid.swift */,
 			);
 			path = Elements;
 			sourceTree = "<group>";
@@ -240,7 +240,7 @@
 		B974F4352BBD859E00EF111F /* Sheets */ = {
 			isa = PBXGroup;
 			children = (
-				B974F42F2BBD7FD400EF111F /* EditChallengesSheet.swift */,
+				B974F42F2BBD7FD400EF111F /* EditChallengeSheet.swift */,
 				B93293D02BB62E9D00396693 /* DevSheet.swift */,
 			);
 			path = Sheets;
@@ -384,23 +384,23 @@
 				B99E685E2BB2DB8C00ACC32E /* _ChallengeDayList.swift in Sources */,
 				B93293D12BB62E9E00396693 /* DevSheet.swift in Sources */,
 				B9332CE02BB2E30A000495D0 /* DataStore.swift in Sources */,
-				B96929B12BBDC02F006326B0 /* _ChallengeConstructList.swift in Sources */,
-				B974F4302BBD7FD400EF111F /* EditChallengesSheet.swift in Sources */,
-				B90D0E642BB20A79000F6DDB /* _ChallengeList.swift in Sources */,
+				B96929B12BBDC02F006326B0 /* _ChallengeList.swift in Sources */,
+				B974F4302BBD7FD400EF111F /* EditChallengeSheet.swift in Sources */,
+				B90D0E642BB20A79000F6DDB /* _ChallengeTaskList.swift in Sources */,
 				B99E685C2BB2D2B000ACC32E /* ChallengeDay.swift in Sources */,
-				B90D0E622BB2048E000F6DDB /* ChallengeElement.swift in Sources */,
-				B91C68DF2BBE92C40048A62C /* DaysGrid.swift in Sources */,
+				B90D0E622BB2048E000F6DDB /* ChallengeTaskElement.swift in Sources */,
+				B91C68DF2BBE92C40048A62C /* ChallengeDaysGrid.swift in Sources */,
 				B936426B2BBB19A800A80DFB /* SplashScreen.swift in Sources */,
 				B90D0E602BB20090000F6DDB /* Header.swift in Sources */,
 				B9719F992BBE872F00108347 /* NavigationState.swift in Sources */,
-				B90D0E662BB20B5C000F6DDB /* Challenge.swift in Sources */,
+				B90D0E662BB20B5C000F6DDB /* ChallengeTask.swift in Sources */,
 				B90D0E362BB1FDF7000F6DDB /* _5HardApp.swift in Sources */,
 				B96A05F82BB9908D0031BD48 /* ChallengeGrid.swift in Sources */,
 				B9CBF1D32BB23283002BBB25 /* ProgressBar.swift in Sources */,
 				B99E685A2BB2CA9E00ACC32E /* DateElement.swift in Sources */,
 				B96559862BB4C787005F5B11 /* HealthStore.swift in Sources */,
-				B974F4372BBD8E4500EF111F /* ChallengeConstruct.swift in Sources */,
-				B96929AF2BBDAE28006326B0 /* ChallengeConstructElement.swift in Sources */,
+				B974F4372BBD8E4500EF111F /* Challenge.swift in Sources */,
+				B96929AF2BBDAE28006326B0 /* ChallengeElement.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

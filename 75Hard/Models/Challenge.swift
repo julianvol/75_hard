@@ -2,15 +2,26 @@
 //  Challenge.swift
 //  75Hard
 //
-//  Created by Julian Müller on 25.03.24.
+//  Created by Julian Müller on 03.04.24.
 //
 
 import Foundation
 
-struct Challenge: Hashable, Codable {
-    let name: String
-    let imageName: String
-    let color: String
-    let color_uncompleted: String
-    var isCompleted: Bool = false
+struct Challenge: Codable {
+    var name: String
+    var phrase: String
+    var challengeDays: [ChallengeDay]
+    var isWeelkyChallenge: Bool
+    var isSelected: Bool
+    
+    mutating func reset(withOffset: Int = 0) {
+        for challengeDayIndex in 0..<75 {
+            if let date = Calendar.current.date(byAdding: .day, value: challengeDayIndex-withOffset, to: Calendar.current.startOfDay(for: Date())) {
+                challengeDays[challengeDayIndex].date = date
+                for challengeTaskIndex in challengeDays[challengeDayIndex].challengeTasks.indices {
+                    challengeDays[challengeDayIndex].challengeTasks[challengeTaskIndex].isCompleted = false
+                }
+            }
+        }
+    }
 }

@@ -73,15 +73,13 @@ struct HomeScreen: View {
     }
     
     private func getData() {
-        dataStore.loadChallengeConstructs()
+        dataStore.loadChallenges()
         dataStore.calculateIndices()
         fetchStepCounts()
     }
     private func setData(offset: Int = 0) {
-        // TODO fix, that the challengeDays are resetet to the right ChallengeDayList
-        dataStore.challengeConstructs[dataStore.selectedChallengeIndex].reset(withOffset: offset)
-        //DataStore.shared.saveChallengeConstructs(challengeConstructs)
-        dataStore.saveChallengeConstructs()
+        dataStore.challenges[dataStore.selectedChallengeIndex].reset(withOffset: offset)
+        dataStore.saveChallenges()
         dataStore.calculateIndices(forceCalculateSelectedChallengeDayIndex: true)
         fetchStepCounts()
         isDevSheetPresented = false
@@ -90,7 +88,7 @@ struct HomeScreen: View {
         Task {
             healthStore.requestStepCountAuthorization()
             do {
-                try await stepCounts = healthStore.fetchStepCounts(startDate: dataStore.challengeConstructs[dataStore.selectedChallengeIndex].challengeDays[0].date)
+                try await stepCounts = healthStore.fetchStepCounts(startDate: dataStore.challenges[dataStore.selectedChallengeIndex].challengeDays[0].date)
             } catch {
                 print(error)
             }

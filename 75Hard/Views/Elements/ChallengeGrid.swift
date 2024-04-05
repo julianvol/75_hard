@@ -19,9 +19,9 @@ struct ChallengeGrid: View {
     
     var body: some View {
         LazyVGrid(columns: [GridItem(.flexible(), spacing: 15), GridItem(.flexible())], spacing: 15) {
-            ForEach(dataStore.challengeConstructs[dataStore.selectedChallengeIndex].challengeDays[dataStore.selectedChallengeDayIndex].challenges.indices, id: \.self) { challengeIndex in
-                ChallengeElement(challenge: $dataStore.challengeConstructs[dataStore.selectedChallengeIndex].challengeDays[dataStore.selectedChallengeDayIndex].challenges[challengeIndex], stepCount: stepCounts.count == 75 ? $stepCounts[dataStore.selectedChallengeDayIndex] : .constant(0), allowTap: dataStore.challengeConstructs[dataStore.selectedChallengeIndex].challengeDays[dataStore.selectedChallengeDayIndex].date == Calendar.current.startOfDay(for: Date()), saveChanges: {
-                    dataStore.saveChallengeConstructs()
+            ForEach(dataStore.challenges[dataStore.selectedChallengeIndex].challengeDays[dataStore.selectedChallengeDayIndex].challengeTasks.indices, id: \.self) { challengeTaskIndex in
+                ChallengeTaskElement(challengeTask: $dataStore.challenges[dataStore.selectedChallengeIndex].challengeDays[dataStore.selectedChallengeDayIndex].challengeTasks[challengeTaskIndex], stepCount: stepCounts.count == 75 ? $stepCounts[dataStore.selectedChallengeDayIndex] : .constant(0), allowTap: dataStore.challenges[dataStore.selectedChallengeIndex].challengeDays[dataStore.selectedChallengeDayIndex].date == Calendar.current.startOfDay(for: Date()), saveChanges: {
+                    dataStore.saveChallenges()
                 })
             }
         }
@@ -29,17 +29,14 @@ struct ChallengeGrid: View {
     /*
     private func challengeBinding(for index: Int) -> Binding<Challenge> {
         Binding(
-            get: { dataStore.challengeConstructs[dataStore.selectedChallengeIndex].challengeDays[dataStore.selectedChallengeDayIndex].challenges[index] },
-            set: { dataStore.challengeConstructs[dataStore.selectedChallengeIndex].challengeDays[dataStore.selectedChallengeDayIndex].challenges[index] = $0 }
+            get: { dataStore.challenges[dataStore.selectedChallengeIndex].challengeDays[dataStore.selectedChallengeDayIndex].challengeTasks[index] },
+            set: { dataStore.challenges[dataStore.selectedChallengeIndex].challengeDays[dataStore.selectedChallengeDayIndex].challengeTasks[index] = $0 }
         )
     }
      */
 }
-/*
- #Preview {
- ChallengeGrid(challengeDays: Binding<[ChallengeDay]>(get: {
- return generateChallengeDayList()
- }, set: { newValue in
- }), stepCounts: .constant(Array(repeating: 0, count: 75)), selectedChallengeDayIndex: .constant(1), saveChanges: {})
- }
- */
+
+#Preview {
+    ChallengeGrid(stepCounts: .constant(Array(repeating: 0, count: 75)))
+}
+ 

@@ -13,17 +13,17 @@ struct SelectChallengesScreen: View {
     @EnvironmentObject var navigationState: NavigationState
     @EnvironmentObject var dataStore: DataStore
 
-    //@State private var challenges: [ChallengeConstruct] = []
+    //@State private var challenges: [Challenge] = []
     
     var body: some View {
         VStack {
             List {
-                ForEach(dataStore.challengeConstructs.indices, id: \.self) { index in
-                    ChallengeConstructElement(challenge: $dataStore.challengeConstructs[index])
+                ForEach(dataStore.challenges.indices, id: \.self) { index in
+                    ChallengeElement(challenge: $dataStore.challenges[index])
                         .onTapGesture {
-                            if (!dataStore.challengeConstructs[index].isSelected) {
+                            if (!dataStore.challenges[index].isSelected) {
                                 selectChallenge(at: index)
-                                dataStore.saveChallengeConstructs()
+                                dataStore.saveChallenges()
                             }
                         }
                 }
@@ -37,16 +37,16 @@ struct SelectChallengesScreen: View {
         }
         .onAppear {
             print("onAppear() -> SelectScreen")
-            dataStore.loadChallengeConstructs()
+            dataStore.loadChallenges()
         }
     }
     private func selectChallenge(at index: Int) {
         // Deselect all challenges
-        for i in dataStore.challengeConstructs.indices {
-            dataStore.challengeConstructs[i].isSelected = false
+        for i in dataStore.challenges.indices {
+            dataStore.challenges[i].isSelected = false
         }
         // Select the tapped challenge
-        dataStore.challengeConstructs[index].isSelected = true
+        dataStore.challenges[index].isSelected = true
         // recalculate indices for screens
         dataStore.calculateIndices(forceCalculateSelectedChallengeDayIndex: true)
     }
