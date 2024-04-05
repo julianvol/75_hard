@@ -37,6 +37,7 @@ struct ContentView: View {
         .onAppear {
             print("onAppear() -> ContentView")
             updateHasGivenConsent()
+            // prepareDataStore
         }
     }
     func updateHasGivenConsent() {

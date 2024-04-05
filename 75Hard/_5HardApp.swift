@@ -17,7 +17,9 @@ struct _5HardApp: App {
             ContentView()
                 .environmentObject(navigationState)
                 .environmentObject(dataStore)
-            
+                .onReceive(NotificationCenter.default.publisher(for: UIApplication.willTerminateNotification)) { _ in
+                        dataStore.saveChallenges()
+                }
         }
     }
 }

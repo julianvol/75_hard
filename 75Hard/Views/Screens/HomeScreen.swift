@@ -69,13 +69,12 @@ struct HomeScreen: View {
     }
     
     private func getData() {
-        dataStore.loadChallenges()
-        dataStore.calculateIndices()
-        fetchStepCounts()
+        //dataStore.loadChallenges()
+        //dataStore.calculateIndices()
     }
     private func setData(offset: Int = 0) {
         dataStore.challenges[dataStore.selectedChallengeIndex].reset(withOffset: offset)
-        dataStore.saveChallenges()
+        //dataStore.saveChallenges()
         dataStore.calculateIndices(forceCalculateSelectedChallengeDayIndex: true)
         fetchStepCounts()
         isDevSheetPresented = false

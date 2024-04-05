@@ -14,23 +14,15 @@ class DataStore: ObservableObject {
     @Published var todaysChallengeDayIndex: Int = 0
     @Published var selectedChallengeDayIndex: Int = 0
     
-    private var haveToCalculateSelectedChallengeDayIndex: Bool = true
     private let challengesKey = "challengeList"
 
-    // Save challenge days to UserDefaults
-    func saveChallenges() {
-        do {
-            let encoder = JSONEncoder()
-            let data = try encoder.encode(self.challenges)
-            UserDefaults.standard.set(data, forKey: challengesKey)
-            print("saved challenges")
-        } catch {
-            print("Error encoding challenge days: \(error)")
-        }
+    init() {
+        loadChallenges()
+        calculateIndices(forceCalculateSelectedChallengeDayIndex: true)
     }
 
-    // Load challenge days from UserDefaults
-    func loadChallenges() {
+    // Load challenges from UserDefaults
+    private func loadChallenges() {
         guard let data = UserDefaults.standard.data(forKey: challengesKey) else {
             print("no list saved -> generatingStandardList")
             challenges = generateChallengeList()
@@ -45,6 +37,18 @@ class DataStore: ObservableObject {
             print("loaded challenges")
         } catch {
             print("Error decoding challenge days: \(error)")
+        }
+    }
+    
+    // Save challenges to UserDefaults
+    func saveChallenges() {
+        do {
+            let encoder = JSONEncoder()
+            let data = try encoder.encode(self.challenges)
+            UserDefaults.standard.set(data, forKey: challengesKey)
+            print("saved challenges")
+        } catch {
+            print("Error encoding challenge days: \(error)")
         }
     }
     
@@ -75,8 +79,7 @@ class DataStore: ObservableObject {
     func calculateIndices(forceCalculateSelectedChallengeDayIndex: Bool = false) {
         selectedChallengeIndex = calculateSelectedChallengeIndex()
         todaysChallengeDayIndex = calculateTodaysChallengeDayIndex()
-        if (haveToCalculateSelectedChallengeDayIndex || forceCalculateSelectedChallengeDayIndex) {
-            haveToCalculateSelectedChallengeDayIndex = false
+        if (forceCalculateSelectedChallengeDayIndex) {
             selectedChallengeDayIndex = max(min(todaysChallengeDayIndex,74),0) // selectedIndex has to be in [0...74]
         }
     }

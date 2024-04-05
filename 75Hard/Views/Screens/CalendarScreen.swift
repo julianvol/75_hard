@@ -78,7 +78,7 @@ struct CalendarScreen: View {
     func onTapResetAction() {
         //setData()
         dataStore.challenges[dataStore.selectedChallengeIndex].reset()
-        dataStore.saveChallenges()
+        //dataStore.saveChallenges()
         dataStore.calculateIndices(forceCalculateSelectedChallengeDayIndex: true)
     }
     func onTapNavigateBackAction() {
@@ -87,14 +87,8 @@ struct CalendarScreen: View {
     
     private func getData() {
         // challenges = DataStore.shared.loadChallenges()
-        dataStore.loadChallenges()
-        dataStore.calculateIndices()
-    }
-    private func setData(offset: Int = 0) {
-        // TODO fix, that the challengeDays are resetet to the right ChallengeDayList
-        dataStore.challenges[dataStore.selectedChallengeIndex].challengeDays = generateChallengeDayList(offset: offset)
-        dataStore.saveChallenges()
-        dataStore.calculateIndices()
+        //dataStore.loadChallenges()
+        //dataStore.calculateIndices()
     }
 }
 
