@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct Header: View {
+struct HomeViewHeader: View {
     @EnvironmentObject var navigationState: NavigationState
     @EnvironmentObject var dataStore: DataStore
          
@@ -38,5 +38,5 @@ struct Header: View {
 }
 
 #Preview {
-    Header()
+    HomeViewHeader()
 }

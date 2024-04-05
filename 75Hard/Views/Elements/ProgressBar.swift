@@ -13,9 +13,6 @@ struct ProgressBar: View {
     
     @Environment(\.colorScheme) private var colorScheme
     
-    //@Binding var todaysChallengeDayIndex: Int
-    //@Binding var selectedChallengeDayIndex: Int
-    
     var body: some View {
         GeometryReader { geometry in
             ZStack(alignment: .leading) {

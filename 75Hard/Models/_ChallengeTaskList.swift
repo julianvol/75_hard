@@ -1,5 +1,5 @@
 //
-//  ChallengeTask.swift
+//  ChallengeTaskList.swift
 //  75Hard
 //
 //  Created by Julian Müller on 25.03.24.

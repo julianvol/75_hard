@@ -12,12 +12,6 @@ struct ChallengeDaysGrid: View {
     @EnvironmentObject var navigationState: NavigationState
     @EnvironmentObject var dataStore: DataStore
 
-    //@Binding var challengeDays: [ChallengeDay]
-    //@Binding var todaysChallengeDayIndex: Int
-    //@Binding var selectedChallengeDayIndex: Int
-    
-    // var onTap: () -> Void
-    
     var body: some View {
         LazyVGrid(columns: [
             GridItem(.flexible(), spacing: 5),

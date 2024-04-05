@@ -12,10 +12,6 @@ struct CalendarScreen: View {
     @EnvironmentObject var dataStore: DataStore
 
     @State private var isShowingConfirmation = false
-    //@State var challenges: [Challenge] = generateChallengeList() // TODO, list with loading placeholders
-    //@State var selectedChallengeIndex: Int = 0
-    //@State var selectedChallengeDayIndex: Int = 0
-    //@State var todaysChallengeDayIndex: Int = 0
     
     var body: some View {
         VStack {

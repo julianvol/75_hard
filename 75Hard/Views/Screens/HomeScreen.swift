@@ -10,10 +10,6 @@ import HealthKit
 
 struct HomeScreen: View {
         
-    //@State private var selectedChallengeIndex: Int = 0
-    //@State private var selectedChallengeDayIndex: Int = 0
-    //@State private var todaysChallengeDayIndex: Int = 0
-    
     @EnvironmentObject var dataStore: DataStore
     
     @State private var stepCounts: [Int] = []
@@ -24,7 +20,7 @@ struct HomeScreen: View {
     var body: some View {
         ZStack {
             VStack {
-                Header()
+                HomeViewHeader()
                     .padding(.top)
                 
                 DateElement()

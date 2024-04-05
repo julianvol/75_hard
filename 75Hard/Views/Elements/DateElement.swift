@@ -11,8 +11,6 @@ struct DateElement: View {
     
     @EnvironmentObject var dataStore: DataStore
 
-    //@Binding var date: Date
-    //@Binding var selectedChallengeDayIndex: Int
     var body: some View {
         HStack {
             Text("Day " + String(dataStore.selectedChallengeDayIndex + 1))

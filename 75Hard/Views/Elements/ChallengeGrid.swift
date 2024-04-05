@@ -11,12 +11,8 @@ struct ChallengeGrid: View {
     
     @EnvironmentObject var dataStore: DataStore
     
-    //@Binding var challengeDays: [ChallengeDay]
     @Binding var stepCounts: [Int]
-    //@Binding var selectedChallengeDayIndex: Int
-    
-    //let saveChanges: () -> Void // Closure to handle tap action
-    
+        
     var body: some View {
         LazyVGrid(columns: [GridItem(.flexible(), spacing: 15), GridItem(.flexible())], spacing: 15) {
             ForEach(dataStore.challenges[dataStore.selectedChallengeIndex].challengeDays[dataStore.selectedChallengeDayIndex].challengeTasks.indices, id: \.self) { challengeTaskIndex in
@@ -26,14 +22,6 @@ struct ChallengeGrid: View {
             }
         }
     }
-    /*
-    private func challengeBinding(for index: Int) -> Binding<Challenge> {
-        Binding(
-            get: { dataStore.challenges[dataStore.selectedChallengeIndex].challengeDays[dataStore.selectedChallengeDayIndex].challengeTasks[index] },
-            set: { dataStore.challenges[dataStore.selectedChallengeIndex].challengeDays[dataStore.selectedChallengeDayIndex].challengeTasks[index] = $0 }
-        )
-    }
-     */
 }
 
 #Preview {

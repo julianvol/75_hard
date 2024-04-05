@@ -12,8 +12,6 @@ struct SelectChallengesScreen: View {
     
     @EnvironmentObject var navigationState: NavigationState
     @EnvironmentObject var dataStore: DataStore
-
-    //@State private var challenges: [Challenge] = []
     
     var body: some View {
         VStack {
