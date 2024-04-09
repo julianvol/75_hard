@@ -11,29 +11,56 @@ import HealthKit
 struct StepDataConsentScreen: View {
     
     @EnvironmentObject var navigationState: NavigationState
-
-    @Binding var hasGivenConsent: Bool
+    
+    @Binding var hasSetConsent: Bool
     let healthStore = HKHealthStore()
     
+    @Environment(\.colorScheme) var colorScheme
+    
     var body: some View {
-        VStack {
-            Text("Hello, we would like to access your devices health data for the step count challenge!")
-                .padding(.bottom, 20)
-            Button("Set access") {
-                requestHealthKitAuthorization()
+        ZStack {
+            VStack(alignment: .leading) {
+                VStack(alignment: .leading) {
+                    Text("Welcome to 75Hard!")
+                        .font(.title)
+                        .fontWeight(.bold)
+                        .padding(.bottom)
+                    Text("We would like to access your devices health data for the step count challenge!")
+                        .font(.headline)
+                        .fontWeight(.medium)
+                }
+                .frame(maxWidth: .infinity, alignment: .leading)
+                .padding(.bottom, 40)
+                HStack {
+                    Text("Manage Access")
+                        .font(.callout)
+                        .fontWeight(.bold)
+                        .foregroundColor(hasSetConsent ? .green : .gray)
+                        .onTapGesture {
+                            if (!hasSetConsent) {
+                                requestHealthKitAuthorization()
+                            }
+                        }
+                    Image(systemName: hasSetConsent ? "checkmark.circle.fill" : "pencil.circle")
+                        .resizable()
+                        .aspectRatio(contentMode: .fit)
+                        .frame(width: 20, height: 20)
+                        .foregroundColor(hasSetConsent ? .green : .gray)
+                }
+                .padding(.leading)
+                Spacer()
             }
-        }
-        .onAppear {
-            print("onAppear() -> ConsentScreen")
-            //updateHealthKitAuthorizationStatus()
-        }
-        .onChange(of: hasGivenConsent) {
-            print("onChange")
-            if (hasGivenConsent) {
-                DispatchQueue.main.asyncAfter(deadline: .now() + 1.5) {
-                    withAnimation() {
-                        navigationState.changeScreen(to: .Home)
-                        print("with animation")
+            .padding(30)
+            .onAppear {
+                print("onAppear() -> ConsentScreen")
+            }
+            .onChange(of: hasSetConsent) {
+                print("consent was set")
+                if (hasSetConsent) {
+                    DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
+                        withAnimation() {
+                            navigationState.changeScreen(to: .Home)
+                        }
                     }
                 }
             }
@@ -56,10 +83,15 @@ struct StepDataConsentScreen: View {
         }
         
         let status = healthStore.authorizationStatus(for: HKObjectType.quantityType(forIdentifier: .stepCount)!)
-        hasGivenConsent = status == .sharingAuthorized || status == .sharingDenied
+
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.4) {
+            withAnimation() {
+                hasSetConsent = status == .sharingAuthorized || status == .sharingDenied
+            }
+        }
     }
 }
 
 #Preview {
-    StepDataConsentScreen(hasGivenConsent: .constant(false))
+    StepDataConsentScreen(hasSetConsent: .constant(true))
 }

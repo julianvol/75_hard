@@ -13,11 +13,11 @@ struct SplashScreen: View {
 
     @State private var scale = 0.7
     @State private var opacity = 0.6
+    
+    @Binding var hasSetConsent: Bool
 
     @Environment(\.colorScheme) var colorScheme
     
-    var onEnd: () -> Void
-
     var body: some View {
         VStack {
             Spacer()
@@ -43,12 +43,14 @@ struct SplashScreen: View {
             }
             print("onAppear() -> SplashScreen")
             DispatchQueue.main.asyncAfter(deadline: .now() + 1.8) {
-                onEnd()
+                withAnimation {
+                    navigationState.changeScreen(to: hasSetConsent ? .Home : .Consent)
+                }
             }
         }
     }
 }
 
 #Preview {
-    SplashScreen(onEnd: {})
+    SplashScreen(hasSetConsent: .constant(false))
 }

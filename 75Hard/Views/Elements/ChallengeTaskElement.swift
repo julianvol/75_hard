@@ -92,6 +92,11 @@ struct ChallengeTaskElement: View {
             self.textColor = challengeTask.isCompleted ? Color("challenge_text_completed") : Color("challenge_text_uncompleted")
             self.scale = challengeTask.isCompleted ? 1.0 : 0.9
         }
+        .onChange(of: challengeTask) {
+            withAnimation(.easeInOut(duration: 0.25)) {
+                self.scale = challengeTask.isCompleted ? 1.0 : 0.9
+            }
+        }
     }
 
     

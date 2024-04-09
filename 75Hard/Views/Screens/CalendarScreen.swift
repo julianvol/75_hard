@@ -24,7 +24,7 @@ struct CalendarScreen: View {
             }
             .padding(.horizontal)
 
-            ChallengeDaysGrid()
+            CalendarDaysGrid()
             
             Spacer()
             

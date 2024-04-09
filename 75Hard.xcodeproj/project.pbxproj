@@ -18,7 +18,7 @@
 		B90D0E622BB2048E000F6DDB /* ChallengeTaskElement.swift in Sources */ = {isa = PBXBuildFile; fileRef = B90D0E612BB2048E000F6DDB /* ChallengeTaskElement.swift */; };
 		B90D0E642BB20A79000F6DDB /* _ChallengeTaskList.swift in Sources */ = {isa = PBXBuildFile; fileRef = B90D0E632BB20A79000F6DDB /* _ChallengeTaskList.swift */; };
 		B90D0E662BB20B5C000F6DDB /* ChallengeTask.swift in Sources */ = {isa = PBXBuildFile; fileRef = B90D0E652BB20B5C000F6DDB /* ChallengeTask.swift */; };
-		B91C68DF2BBE92C40048A62C /* ChallengeDaysGrid.swift in Sources */ = {isa = PBXBuildFile; fileRef = B91C68DE2BBE92C40048A62C /* ChallengeDaysGrid.swift */; };
+		B91C68DF2BBE92C40048A62C /* CalendarDaysGrid.swift in Sources */ = {isa = PBXBuildFile; fileRef = B91C68DE2BBE92C40048A62C /* CalendarDaysGrid.swift */; };
 		B93293D12BB62E9E00396693 /* DevSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = B93293D02BB62E9D00396693 /* DevSheet.swift */; };
 		B9332CE02BB2E30A000495D0 /* DataStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9332CDF2BB2E30A000495D0 /* DataStore.swift */; };
 		B936426B2BBB19A800A80DFB /* SplashScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = B936426A2BBB19A800A80DFB /* SplashScreen.swift */; };
@@ -71,7 +71,7 @@
 		B90D0E612BB2048E000F6DDB /* ChallengeTaskElement.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChallengeTaskElement.swift; sourceTree = "<group>"; };
 		B90D0E632BB20A79000F6DDB /* _ChallengeTaskList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = _ChallengeTaskList.swift; sourceTree = "<group>"; };
 		B90D0E652BB20B5C000F6DDB /* ChallengeTask.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChallengeTask.swift; sourceTree = "<group>"; };
-		B91C68DE2BBE92C40048A62C /* ChallengeDaysGrid.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChallengeDaysGrid.swift; sourceTree = "<group>"; };
+		B91C68DE2BBE92C40048A62C /* CalendarDaysGrid.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarDaysGrid.swift; sourceTree = "<group>"; };
 		B93293D02BB62E9D00396693 /* DevSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DevSheet.swift; sourceTree = "<group>"; };
 		B9332CDF2BB2E30A000495D0 /* DataStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataStore.swift; sourceTree = "<group>"; };
 		B936426A2BBB19A800A80DFB /* SplashScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashScreen.swift; sourceTree = "<group>"; };
@@ -213,12 +213,12 @@
 		B974F4332BBD849E00EF111F /* Screens */ = {
 			isa = PBXGroup;
 			children = (
+				B9719F9A2BBE8A1100108347 /* ContentView.swift */,
 				B936426A2BBB19A800A80DFB /* SplashScreen.swift */,
 				B9EA8EDC2BBC8B76000ECE54 /* StepDataConsentScreen.swift */,
 				B90D0E372BB1FDF7000F6DDB /* HomeScreen.swift */,
 				B93E7D4C2BB245AA0002EDFA /* CalendarScreen.swift */,
 				B974F4312BBD848600EF111F /* SelectChallengesScreen.swift */,
-				B9719F9A2BBE8A1100108347 /* ContentView.swift */,
 			);
 			path = Screens;
 			sourceTree = "<group>";
@@ -232,7 +232,7 @@
 				B90D0E612BB2048E000F6DDB /* ChallengeTaskElement.swift */,
 				B96A05F72BB9908D0031BD48 /* ChallengeTaskGrid.swift */,
 				B96929AE2BBDAE28006326B0 /* ChallengeElement.swift */,
-				B91C68DE2BBE92C40048A62C /* ChallengeDaysGrid.swift */,
+				B91C68DE2BBE92C40048A62C /* CalendarDaysGrid.swift */,
 			);
 			path = Elements;
 			sourceTree = "<group>";
@@ -389,7 +389,7 @@
 				B90D0E642BB20A79000F6DDB /* _ChallengeTaskList.swift in Sources */,
 				B99E685C2BB2D2B000ACC32E /* ChallengeDay.swift in Sources */,
 				B90D0E622BB2048E000F6DDB /* ChallengeTaskElement.swift in Sources */,
-				B91C68DF2BBE92C40048A62C /* ChallengeDaysGrid.swift in Sources */,
+				B91C68DF2BBE92C40048A62C /* CalendarDaysGrid.swift in Sources */,
 				B936426B2BBB19A800A80DFB /* SplashScreen.swift in Sources */,
 				B90D0E602BB20090000F6DDB /* HomeViewHeader.swift in Sources */,
 				B9719F992BBE872F00108347 /* NavigationState.swift in Sources */,

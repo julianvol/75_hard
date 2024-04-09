@@ -12,7 +12,7 @@ struct ProgressBar: View {
     @EnvironmentObject var dataStore: DataStore
     
     @Environment(\.colorScheme) private var colorScheme
-    
+        
     var body: some View {
         GeometryReader { geometry in
             ZStack(alignment: .leading) {
@@ -36,6 +36,20 @@ struct ProgressBar: View {
                     .padding(.horizontal, 8)
                     .frame(maxWidth: .infinity, alignment: dataStore.todaysChallengeDayIndex < 38 ? .trailing : .leading)
             }
+            .gesture(
+                DragGesture()
+                    .onEnded { value in
+                        let stepWidth = geometry.size.width/74
+                        let steps = Int(value.translation.width/stepWidth)
+                        withAnimation {
+                            if (value.translation.width > 0) {
+                                dataStore.selectedChallengeDayIndex = min(dataStore.selectedChallengeDayIndex+steps, dataStore.challenges[dataStore.selectedChallengeIndex].challengeDays.count-1)
+                            } else if (value.translation.width < 0) {
+                                dataStore.selectedChallengeDayIndex = max(dataStore.selectedChallengeDayIndex+steps, 0)
+                            }
+                        }
+                    }
+            )
         }
     }
 }

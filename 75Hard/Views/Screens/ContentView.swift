@@ -12,20 +12,16 @@ struct ContentView: View {
     
     @EnvironmentObject var navigationState: NavigationState
     
-    @State var hasGivenConsent: Bool = false
+    @State var hasSetConsent: Bool = false
     let healthStore = HKHealthStore()
     
     var body: some View {
         VStack {
             switch (navigationState.currentScreen) {
             case .Splash:
-                SplashScreen() {
-                    withAnimation {
-                        navigationState.changeScreen(to: hasGivenConsent ? .Home : .Consent)
-                    }
-                }
+                SplashScreen(hasSetConsent: $hasSetConsent)
             case .Consent:
-                StepDataConsentScreen(hasGivenConsent: $hasGivenConsent)
+                StepDataConsentScreen(hasSetConsent: $hasSetConsent)
             case .Home:
                 HomeScreen()
             case .Calendar:
@@ -37,7 +33,6 @@ struct ContentView: View {
         .onAppear {
             print("onAppear() -> ContentView")
             updateHasGivenConsent()
-            // prepareDataStore
         }
     }
     func updateHasGivenConsent() {
@@ -46,10 +41,10 @@ struct ContentView: View {
         }
         
         let status = healthStore.authorizationStatus(for: HKObjectType.quantityType(forIdentifier: .stepCount)!)
-        hasGivenConsent = status == .sharingAuthorized || status == .sharingDenied
+        hasSetConsent = status == .sharingAuthorized || status == .sharingDenied
     }
 }
 
 #Preview {
-    ContentView(hasGivenConsent: false)
+    ContentView(hasSetConsent: false)
 }

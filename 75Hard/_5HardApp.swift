@@ -11,7 +11,8 @@ import SwiftUI
 struct _5HardApp: App {
     @StateObject var navigationState = NavigationState()
     @StateObject var dataStore = DataStore()
-
+    @Environment(\.scenePhase) private var scenePhase
+    
     var body: some Scene {
         WindowGroup {
             ContentView()
@@ -19,6 +20,11 @@ struct _5HardApp: App {
                 .environmentObject(dataStore)
                 .onReceive(NotificationCenter.default.publisher(for: UIApplication.willTerminateNotification)) { _ in
                         dataStore.saveChallenges()
+                }
+                .onChange(of: scenePhase) {
+                    if scenePhase == .background {
+                        dataStore.saveChallenges()
+                    }
                 }
         }
     }
