@@ -46,29 +46,21 @@ struct ChallengeTaskElement: View {
         .frame(maxWidth: .infinity, maxHeight: .infinity)
         .scaleEffect(scale)
         .cornerRadius(20.0)
-        .gesture(DragGesture(minimumDistance: 0.0, coordinateSpace: .local)
+        .gesture(LongPressGesture(minimumDuration: 0.35, maximumDistance: 15)
             .onChanged { _ in
-                print(isTouching)
-                if (!allowTap || isTouching) {
+                if (!allowTap) {
                     return
                 } else {
-                    self.isTouching.toggle()
                     if (challengeTask.name == "Steps" && stepCount < 10000) {
                         self.textColor = Color("challenge_text_failed")
                     } else {
-                        self.timer = Timer.scheduledTimer(withTimeInterval: 0.5, repeats: false) { _ in
-                            if (isTouching) { // send feedback
-                                self.hasTappedLongEnough = true
-                                let generator = UIImpactFeedbackGenerator(style: .rigid)
-                                generator.impactOccurred()
-                                withAnimation(.easeInOut(duration: 0.5)) {
-                                    self.challengeTask.isCompleted.toggle()
-                                }
-                            }
-                        }
-                        withAnimation(.easeInOut(duration: 0.25)) {
+                        withAnimation(.easeInOut(duration: 0.35)) {
                             self.scale = challengeTask.isCompleted ? 0.9 : 1.0
                         }
+                        Timer.scheduledTimer(withTimeInterval: 0.35, repeats: false) { _ in
+                            withAnimation(.easeInOut(duration: 0.35)) {
+                                self.scale = challengeTask.isCompleted ? 1.0 : 0.9
+                            }                        }
                     }
                 }
             }
@@ -76,14 +68,10 @@ struct ChallengeTaskElement: View {
                 if (!allowTap) {
                     return
                 } else {
-                    if let existingTimer = self.timer {
-                        existingTimer.invalidate()
-                    }
-                    self.isTouching.toggle()
+                    let generator = UIImpactFeedbackGenerator(style: .rigid)
+                    generator.impactOccurred()
                     withAnimation(.easeInOut(duration: 0.5)) {
-                        if (!(challengeTask.name == "Steps" && stepCount < 10000) && hasTappedLongEnough) {
-                            self.hasTappedLongEnough = false
-                        }
+                        self.challengeTask.isCompleted.toggle()
                         self.scale = challengeTask.isCompleted ? 1.0 : 0.9
                         self.textColor = challengeTask.isCompleted ? Color("challenge_text_completed") : Color("challenge_text_uncompleted")
                     }
@@ -98,7 +86,7 @@ struct ChallengeTaskElement: View {
             self.scale = challengeTask.isCompleted ? 1.0 : 0.9
         }
         .onChange(of: challengeTask) {
-            withAnimation(.easeInOut(duration: 0.25)) {
+            withAnimation(.easeInOut(duration: 0.35)) {
                 self.scale = challengeTask.isCompleted ? 1.0 : 0.9
             }
         }
