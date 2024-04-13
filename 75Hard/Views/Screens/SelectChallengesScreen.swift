@@ -13,6 +13,8 @@ struct SelectChallengesScreen: View {
     @EnvironmentObject var navigationState: NavigationState
     @EnvironmentObject var dataStore: DataStore
     
+    @State private var isShowingAddChallengeSheet: Bool = false
+    
     var body: some View {
         VStack {
             List {
@@ -24,6 +26,14 @@ struct SelectChallengesScreen: View {
                             }
                         }
                 }
+                Image(systemName: "plus.circle")
+                    .resizable()
+                    .aspectRatio(contentMode: .fit)
+                    .frame(width: 20, height: 20)
+                    .foregroundColor(.gray)
+                    .onTapGesture {
+                        isShowingAddChallengeSheet.toggle()
+                    }
             }
             Text("Back")
                 .onTapGesture {
@@ -31,6 +41,14 @@ struct SelectChallengesScreen: View {
                         navigationState.changeScreen(to: .Calendar)
                     }
             }
+        }
+        .sheet(isPresented: $isShowingAddChallengeSheet) {
+            AddChallengeSheet(onSave: { challenge in
+                dataStore.challenges.append(challenge)
+                isShowingAddChallengeSheet.toggle()
+            }, onCancel: {
+                isShowingAddChallengeSheet.toggle()
+            })
         }
         .onAppear {
             print("onAppear() -> SelectScreen")

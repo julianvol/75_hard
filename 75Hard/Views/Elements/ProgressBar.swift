@@ -12,6 +12,8 @@ struct ProgressBar: View {
     @EnvironmentObject var dataStore: DataStore
     
     @Environment(\.colorScheme) private var colorScheme
+    
+    @State var lastSelectedTaskDayIndex: Int = 0
         
     var body: some View {
         GeometryReader { geometry in
@@ -38,18 +40,25 @@ struct ProgressBar: View {
             }
             .gesture(
                 DragGesture()
-                    .onEnded { value in
-                        let stepWidth = geometry.size.width/74
+                    .onChanged { value in
+                        let stepWidth = (geometry.size.width-16-9)/(74/2)
                         let steps = Int(value.translation.width/stepWidth)
                         withAnimation {
                             if (value.translation.width > 0) {
-                                dataStore.selectedChallengeDayIndex = min(dataStore.selectedChallengeDayIndex+steps, dataStore.challenges[dataStore.selectedChallengeIndex].challengeDays.count-1)
+                                dataStore.selectedChallengeDayIndex = min(lastSelectedTaskDayIndex+steps, dataStore.challenges[dataStore.selectedChallengeIndex].challengeDays.count-1)
                             } else if (value.translation.width < 0) {
-                                dataStore.selectedChallengeDayIndex = max(dataStore.selectedChallengeDayIndex+steps, 0)
+                                dataStore.selectedChallengeDayIndex = max(lastSelectedTaskDayIndex+steps, 0)
                             }
                         }
                     }
+                    .onEnded { value in
+                        lastSelectedTaskDayIndex = dataStore.selectedChallengeDayIndex
+                        print(lastSelectedTaskDayIndex)
+                    }
             )
+            .onAppear {
+                lastSelectedTaskDayIndex = dataStore.selectedChallengeDayIndex
+            }
         }
     }
 }

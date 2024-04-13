@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct ChallengeDay: Codable {
+struct ChallengeDay: Codable, Equatable {
     var date : Date
     var challengeTasks: [ChallengeTask]
     

@@ -45,7 +45,7 @@ struct ChallengeTaskElement: View {
         .frame(maxWidth: .infinity, maxHeight: .infinity)
         .scaleEffect(scale)
         .cornerRadius(20.0)
-        .gesture(DragGesture(minimumDistance: 0.0, coordinateSpace: .global)
+        .gesture(DragGesture(minimumDistance: 0.0, coordinateSpace: .local)
             .onChanged { _ in
                 if (!allowTap || isTouching) {
                     return

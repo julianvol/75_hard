@@ -11,7 +11,7 @@ let ChallengeTaskList_Standard: [ChallengeTask] = [
     ChallengeTask(name: "Workout\nanything", imageName: "dumbbell", color: "workout_any", color_uncompleted: "workout_any_uncompleted"),
     ChallengeTask(name: "Workout\noutside", imageName: "figure.outdoor.cycle", color: "workout_outside", color_uncompleted: "workout_outside_uncompleted"),
     ChallengeTask(name: "Healthy\ndiet", imageName: "fork.knife.circle", color: "diet", color_uncompleted: "diet_uncompleted"),
-    ChallengeTask(name: "4 Liter\nWater", imageName: "waterbottle.fill", color: "water", color_uncompleted: "water_uncompleted"),
+    ChallengeTask(name: "3.5 Liter\nWater", imageName: "waterbottle.fill", color: "water", color_uncompleted: "water_uncompleted"),
     ChallengeTask(name: "Read 10\npages", imageName: "book", color: "reading", color_uncompleted: "reading_uncompleted"),
     ChallengeTask(name: "Steps", imageName: "figure.walk", color: "steps", color_uncompleted: "steps_uncompleted")
 ]

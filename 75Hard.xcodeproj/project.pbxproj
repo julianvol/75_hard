@@ -35,6 +35,7 @@
 		B99E685A2BB2CA9E00ACC32E /* DateElement.swift in Sources */ = {isa = PBXBuildFile; fileRef = B99E68592BB2CA9E00ACC32E /* DateElement.swift */; };
 		B99E685C2BB2D2B000ACC32E /* ChallengeDay.swift in Sources */ = {isa = PBXBuildFile; fileRef = B99E685B2BB2D2B000ACC32E /* ChallengeDay.swift */; };
 		B99E685E2BB2DB8C00ACC32E /* _ChallengeDayList.swift in Sources */ = {isa = PBXBuildFile; fileRef = B99E685D2BB2DB8C00ACC32E /* _ChallengeDayList.swift */; };
+		B9CA1E532BC574630099C9EC /* AddChallengeSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9CA1E522BC574630099C9EC /* AddChallengeSheet.swift */; };
 		B9CBF1D32BB23283002BBB25 /* ProgressBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9CBF1D22BB23283002BBB25 /* ProgressBar.swift */; };
 		B9EA8EDD2BBC8B76000ECE54 /* StepDataConsentScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9EA8EDC2BBC8B76000ECE54 /* StepDataConsentScreen.swift */; };
 /* End PBXBuildFile section */
@@ -89,6 +90,7 @@
 		B99E68592BB2CA9E00ACC32E /* DateElement.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateElement.swift; sourceTree = "<group>"; };
 		B99E685B2BB2D2B000ACC32E /* ChallengeDay.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChallengeDay.swift; sourceTree = "<group>"; };
 		B99E685D2BB2DB8C00ACC32E /* _ChallengeDayList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = _ChallengeDayList.swift; sourceTree = "<group>"; };
+		B9CA1E522BC574630099C9EC /* AddChallengeSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddChallengeSheet.swift; sourceTree = "<group>"; };
 		B9CBF1D22BB23283002BBB25 /* ProgressBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressBar.swift; sourceTree = "<group>"; };
 		B9EA8EDC2BBC8B76000ECE54 /* StepDataConsentScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StepDataConsentScreen.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -240,6 +242,7 @@
 		B974F4352BBD859E00EF111F /* Sheets */ = {
 			isa = PBXGroup;
 			children = (
+				B9CA1E522BC574630099C9EC /* AddChallengeSheet.swift */,
 				B974F42F2BBD7FD400EF111F /* EditChallengeSheet.swift */,
 				B93293D02BB62E9D00396693 /* DevSheet.swift */,
 			);
@@ -385,6 +388,7 @@
 				B93293D12BB62E9E00396693 /* DevSheet.swift in Sources */,
 				B9332CE02BB2E30A000495D0 /* DataStore.swift in Sources */,
 				B96929B12BBDC02F006326B0 /* _ChallengeList.swift in Sources */,
+				B9CA1E532BC574630099C9EC /* AddChallengeSheet.swift in Sources */,
 				B974F4302BBD7FD400EF111F /* EditChallengeSheet.swift in Sources */,
 				B90D0E642BB20A79000F6DDB /* _ChallengeTaskList.swift in Sources */,
 				B99E685C2BB2D2B000ACC32E /* ChallengeDay.swift in Sources */,

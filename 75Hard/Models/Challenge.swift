@@ -7,7 +7,17 @@
 
 import Foundation
 
-struct Challenge: Codable {
+struct Challenge: Codable, Equatable {
+    static func == (lhs: Challenge, rhs: Challenge) -> Bool {
+        return (
+            lhs.name == rhs.name
+            && lhs.phrase == rhs.phrase
+            && lhs.challengeDays == rhs.challengeDays
+            && lhs.isWeelkyChallenge == rhs.isWeelkyChallenge
+            && lhs.isSelected == rhs.isSelected
+        )
+    }
+    
     var name: String
     var phrase: String
     var challengeDays: [ChallengeDay]

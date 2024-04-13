@@ -8,14 +8,29 @@
 import SwiftUI
 
 struct EditChallengeSheet: View {
+        
+    @Binding var challenge: Challenge
+    
+    var onSave: () -> Void
+    var onCancel: () -> Void
+    
     var body: some View {
-        Text("Edit Challenges Sheet!")
-        Button("Back") {
-            // TODO navigate Back
+        VStack {
+            Text("Edit Challenges Sheet!")
+            TextField("name", text: $challenge.name)
+            Button("Back") {
+                onCancel()
+            }
+        }
+        .onChange(of: challenge) {
+            print(challenge.name)
         }
     }
 }
 
 #Preview {
-    EditChallengeSheet()
+    var SampleChallenge: Challenge = .init(name: "", phrase: "", challengeDays: [], isWeelkyChallenge: false, isSelected: false)
+    
+    return EditChallengeSheet(challenge: .constant(SampleChallenge), onSave: {}, onCancel: {})
+    return EditChallengeSheet(challenge: .constant(SampleChallenge), onSave: {}, onCancel: {})
 }
