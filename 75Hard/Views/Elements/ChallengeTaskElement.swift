@@ -22,6 +22,7 @@ struct ChallengeTaskElement: View {
     @Environment(\.colorScheme) var colorScheme
     
     let allowTap: Bool
+    @State private var timer: Timer?
     
     var body: some View {
         ZStack {
@@ -47,6 +48,7 @@ struct ChallengeTaskElement: View {
         .cornerRadius(20.0)
         .gesture(DragGesture(minimumDistance: 0.0, coordinateSpace: .local)
             .onChanged { _ in
+                print(isTouching)
                 if (!allowTap || isTouching) {
                     return
                 } else {
@@ -54,7 +56,7 @@ struct ChallengeTaskElement: View {
                     if (challengeTask.name == "Steps" && stepCount < 10000) {
                         self.textColor = Color("challenge_text_failed")
                     } else {
-                        Timer.scheduledTimer(withTimeInterval: 0.5, repeats: false) { _ in
+                        self.timer = Timer.scheduledTimer(withTimeInterval: 0.5, repeats: false) { _ in
                             if (isTouching) { // send feedback
                                 self.hasTappedLongEnough = true
                                 let generator = UIImpactFeedbackGenerator(style: .rigid)
@@ -71,9 +73,12 @@ struct ChallengeTaskElement: View {
                 }
             }
             .onEnded { _ in
-                if (!allowTap || !isTouching) {
+                if (!allowTap) {
                     return
                 } else {
+                    if let existingTimer = self.timer {
+                        existingTimer.invalidate()
+                    }
                     self.isTouching.toggle()
                     withAnimation(.easeInOut(duration: 0.5)) {
                         if (!(challengeTask.name == "Steps" && stepCount < 10000) && hasTappedLongEnough) {
